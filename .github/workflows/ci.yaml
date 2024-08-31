@@ -12,6 +12,7 @@ on:
         types:
             - closed
     workflow_dispatch:
+
 concurrency:
     group: ${{github.event.ref}}
     cancel-in-progress: true
