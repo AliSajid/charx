@@ -120,7 +120,8 @@ jobs:
                 gistID: ${{env.GIST_KEY}}
                 filename: ${{matrix.os}}-${{matrix.label}}.json
                 label: Build
-                namedLogo: ${{matrix.logo}}
+                labelColor: lightgrey
+                logoSvg: ${{matrix.logoSvg}}
                 message: Succeeded
                 color: green
             - name: Create Awesome Badge - Failure
@@ -130,7 +131,8 @@ jobs:
                 auth: ${{secrets.GIST_SECRET}}
                 gistID: ${{env.GIST_KEY}}
                 filename: ${{matrix.os}}-${{matrix.label}}.json
-                namedLogo: ${{matrix.logo}}
+                labelColor: lightgrey
+                logoSvg: ${{matrix.logoSvg}}
                 label: Build
                 message: Failed
                 isError: true
