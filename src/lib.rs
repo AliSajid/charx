@@ -1,9 +1,7 @@
-// Copyright (C) 2022 Soni L.
+// SPDX-FileCopyrightText: 2022 - 2024 Soni L.
+// SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+//
 // SPDX-License-Identifier: 0BSD
-//
-// This work is released under the BSD Zero Clause License.
-//
-// See https://spdx.org/licenses/0BSD.html or the LICENSE file for more information.
 
 //! A replacement for char
 //! ======================

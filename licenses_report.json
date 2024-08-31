@@ -1,0 +1,122 @@
+{
+    "crates": [
+        {
+            "license": "0BSD",
+            "package": {
+                "authors": [],
+                "categories": [],
+                "default_run": null,
+                "dependencies": [],
+                "description": "A replacement for char::is_ascii*",
+                "documentation": null,
+                "edition": "2021",
+                "features": {},
+                "homepage": null,
+                "id": "path+file:///Users/aimami/experiments/rust-projects/charx#1.0.2",
+                "keywords": [],
+                "license": "0BSD",
+                "license_file": null,
+                "links": null,
+                "manifest_path": "/Users/aimami/experiments/rust-projects/charx/Cargo.toml",
+                "name": "charx",
+                "publish": null,
+                "readme": "README.md",
+                "repository": "https://github.com/AliSajid/charx",
+                "rust_version": "1.56.0",
+                "source": null,
+                "targets": [
+                    {
+                        "crate_types": [
+                            "staticlib",
+                            "dylib",
+                            "lib"
+                        ],
+                        "doc": true,
+                        "doctest": true,
+                        "edition": "2021",
+                        "kind": [
+                            "staticlib",
+                            "dylib",
+                            "lib"
+                        ],
+                        "name": "charx",
+                        "required-features": [],
+                        "src_path": "/Users/aimami/experiments/rust-projects/charx/src/lib.rs",
+                        "test": true
+                    }
+                ],
+                "version": "1.0.2"
+            }
+        }
+    ],
+    "licenses": [
+        {
+            "first_of_kind": true,
+            "id": "0BSD",
+            "name": "BSD Zero Clause License",
+            "source_path": "/Users/aimami/experiments/rust-projects/charx/LICENSE",
+            "text": "Copyright (C) YEAR by AUTHOR EMAIL\n\nPermission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n",
+            "used_by": [
+                {
+                    "crate": {
+                        "authors": [],
+                        "categories": [],
+                        "default_run": null,
+                        "dependencies": [],
+                        "description": "A replacement for char::is_ascii*",
+                        "documentation": null,
+                        "edition": "2021",
+                        "features": {},
+                        "homepage": null,
+                        "id": "path+file:///Users/aimami/experiments/rust-projects/charx#1.0.2",
+                        "keywords": [],
+                        "license": "0BSD",
+                        "license_file": null,
+                        "links": null,
+                        "manifest_path": "/Users/aimami/experiments/rust-projects/charx/Cargo.toml",
+                        "name": "charx",
+                        "publish": null,
+                        "readme": "README.md",
+                        "repository": "https://github.com/AliSajid/charx",
+                        "rust_version": "1.56.0",
+                        "source": null,
+                        "targets": [
+                            {
+                                "crate_types": [
+                                    "staticlib",
+                                    "dylib",
+                                    "lib"
+                                ],
+                                "doc": true,
+                                "doctest": true,
+                                "edition": "2021",
+                                "kind": [
+                                    "staticlib",
+                                    "dylib",
+                                    "lib"
+                                ],
+                                "name": "charx",
+                                "required-features": [],
+                                "src_path": "/Users/aimami/experiments/rust-projects/charx/src/lib.rs",
+                                "test": true
+                            }
+                        ],
+                        "version": "1.0.2"
+                    },
+                    "path": null
+                }
+            ]
+        }
+    ],
+    "overview": [
+        {
+            "count": 1,
+            "id": "0BSD",
+            "indices": [
+                0
+            ],
+            "name": "BSD Zero Clause License",
+            "text": "Copyright (C) YEAR by AUTHOR EMAIL\n\nPermission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n"
+        }
+    ]
+}

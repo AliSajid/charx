@@ -1,0 +1,71 @@
+# SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+#
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+
+[[annotations]]
+path = [
+    ".gitleaksignore",
+    ".gitignore",
+    ".secrets.baseline",
+    ".markdownlintignore",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "Cargo.lock"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "licenses_report.md",
+    "licenses_report.json",
+    "renovate.json",
+    ".markdownlint.json",
+    ".vale.ini",
+    ".gitpod.yml",
+    ".releaserc.yml",
+    ".gitpod.Dockerfile",
+    ".cspell.json",
+    ".jscpd.json",
+    ".mega-linter.yml"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = ".github/workflows/*"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [
+    ".github/ISSUE_TEMPLATE/*",
+    ".github/PULL_REQUEST_TEMPLATE.md"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [
+    "CHANGELOG.md",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [
+    "meta/vale-styles/config/vocabularies/Custom/accept.txt"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
