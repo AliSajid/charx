@@ -18,3 +18,7 @@ meta/vale-styles/*
 !meta/vale-styles/config/vocabularies/Custom/accept.txt
 
 ltex.*
+
+node_modules/
+package-lock.json
+package.json
