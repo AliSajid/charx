@@ -35,7 +35,7 @@
 
 macro_rules! charx_fn {
     ($name:ident) => {
-        #[doc=concat!("Same as [`char::", stringify!($name), "`] but takes `char` instead of `&char`.")]
+        #[doc=concat!("Same as [`char::", stringify!($name), "`] but takes `char` instead of `&char`. Returns true if the character satisfies the condition.")]
         ///
         /// # Examples
         ///
@@ -50,6 +50,11 @@ macro_rules! charx_fn {
         /// ```rust
         #[doc=concat!("\"hello\".trim_start_matches(charx::", stringify!($name), ");")]
         /// ```
+        ///
+        /// # Example Output
+        ///
+        #[doc=concat!("assert!(charx::", stringify!($name), "('A')); // returns true")]
+        #[doc=concat!("assert!(!charx::", stringify!($name), "('z')); // returns false")]
         #[inline(always)]
         #[must_use]
         pub const fn $name(ch: char) -> bool {
@@ -63,13 +68,23 @@ macro_rules! charx_fn {
         mod tests {
             use super::*;
 
+            fn check_charx_fn(ch: char, name: &str, func: fn(char) -> bool, std_func: fn(&char) -> bool) {
+                assert_eq!(func(ch), std_func(&ch), "Function `{}` failed for character: {:?}", name, ch);
+            }
+
             #[test]
             fn test_charx_fns() {
-                for ch in '\0'..='\u{10FFFF}' {
-                    $(
-                        assert_eq!(char::$name(&ch), $name(ch), concat!("Failed for function: ", stringify!($name)));
-                    )*
-                }
+                let fns: &[(&str, fn(char) -> bool, fn(&char) -> bool)] = &[
+                    $((stringify!($name), $name, char::$name)),*
+                ];
+
+                (0..=0x10FFFF)
+                    .filter_map(std::char::from_u32)  // filter out invalid code points
+                    .for_each(|ch| {
+                        for &(name, func, std_func) in fns {
+                            check_charx_fn(ch, name, func, std_func);
+                        }
+                    });
             }
         }
     };
