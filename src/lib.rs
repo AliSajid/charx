@@ -51,20 +51,27 @@ macro_rules! charx_fn {
         #[doc=concat!("\"hello\".trim_start_matches(charx::", stringify!($name), ");")]
         /// ```
         #[inline(always)]
-        pub fn $name(ch: char) -> bool {
+        #[must_use]
+        pub const fn $name(ch: char) -> bool {
             char::$name(&ch)
-        }
-        mod $name {
-            #[test]
-            fn test() {
-                for ch in '\0'..='\u{10FFFF}' {
-                    assert_eq!(char::$name(&ch), crate::$name(ch));
-                }
-            }
         }
     };
     ($($name:ident)*) => {
         $(charx_fn!($name);)*
+
+        #[cfg(test)]
+        mod tests {
+            use super::*;
+
+            #[test]
+            fn test_charx_fns() {
+                for ch in '\0'..='\u{10FFFF}' {
+                    $(
+                        assert_eq!(char::$name(&ch), $name(ch), concat!("Failed for function: ", stringify!($name)));
+                    )*
+                }
+            }
+        }
     };
 }
 
