@@ -19,10 +19,6 @@ crate-type = ["staticlib", "dylib", "lib"]
 
 [dependencies]
 
-[build]
-jobs = 1
-incremental = true
-
 [profile.dev]
 opt-level = 0
 debug = true
