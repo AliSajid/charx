@@ -14,19 +14,6 @@ SPDX-License-Identifier: 0BSD
 [![Crates.io](https://img.shields.io/crates/l/charx)](https://choosealicense.com/licenses/0bsd/)
 
 [![docs.rs](https://img.shields.io/docsrs/charx)](https://docs.rs/charx)
-[![Continuous integration](https://github.com/AliSajid/charx/actions/workflows/ci.yaml/badge.svg)](https://github.com/AliSajid/charx/actions/workflows/ci.yaml)
-[![GitHub Created At](https://img.shields.io/github/created-at/AliSajid/charx)](https://github.com/AliSajid/charx/commit/b420dd99b0554b0e8d71a41bf17a1814fcf98dcc)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/alisajid/charx/latest)
-
-![Crates.io MSRV](https://img.shields.io/crates/msrv/charx)
-[![REUSE status](https://api.reuse.software/badge/github.com/AliSajid/charx)](https://api.reuse.software/info/github.com/AliSajid/charx)
-[![Codecov](https://img.shields.io/codecov/c/github/AliSajid/charx)](https://app.codecov.io/gh/AliSajid/charx)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/293d6f6e3e5e4fadb1b88db426462f87)](https://app.codacy.com/gh/AliSajid/charx/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/AliSajid/charx)](https://www.codefactor.io/repository/github/alisajid/charx)
-
-[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/cargo/charx)](https://libraries.io/cargo/charx)
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9684/badge)](https://www.bestpractices.dev/projects/9684)
-[![OSSF-Scorecard Score](https://img.shields.io/ossf-scorecard/github.com/AliSajid/charx)](https://scorecard.dev/viewer/?uri=github.com/AliSajid/charx)
 
 [![Code of Conduct: Contributor Covenant](https://img.shields.io/badge/code_of_conduct-contributor_covenant-14cc21)](https://github.com/EthicalSource/contributor_covenant)
 
