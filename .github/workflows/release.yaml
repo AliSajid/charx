@@ -11,8 +11,7 @@ env:
   SEMREL_RUST_VERSION: 2.1.53
 
 concurrency:
-  group: ${{ github.workflow }}
-
+    group: ${{ github.workflow }}
 permissions:
   contents: read
 
