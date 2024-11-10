@@ -26,4 +26,3 @@ MIT
 (?i)config
 (?i)sex(ual)?
 (?i)codecov
-(?i)codacy
