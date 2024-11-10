@@ -4,12 +4,11 @@
 name: Next semantic-release version
 
 on:
-  workflow_call:
-    outputs:
-      new-release-published:
-        description: Indicates whether a new release will be published. The value is a string, either 'true' or 'false'.
-        value: ${{ jobs.get-next-version.outputs.new-release-published }}
-
+    workflow_call:
+        outputs:
+            new-release-published:
+                description: Indicates whether a new release will be published. The value is a string, either 'true' or 'false'.
+                value: ${{ jobs.get-next-version.outputs.new-release-published }}
 permissions:
   contents: read
 
