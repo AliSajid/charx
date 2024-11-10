@@ -16,6 +16,8 @@ SPDX-License-Identifier: 0BSD
 ![OSS Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2FAliSajid%2Fcharx%2Fblob%2Fmain%2FOSSMETADATA)
 ![Crates.io MSRV](https://img.shields.io/crates/msrv/charx)
 ![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/cargo/charx)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/alisajid/charx/latest)
+![GitHub Created At](https://img.shields.io/github/created-at/AliSajid/charx)
 
 [![Code of Conduct: Contributor Covenant](https://img.shields.io/badge/code_of_conduct-contributor_covenant-14cc21)](https://github.com/EthicalSource/contributor_covenant)
 
