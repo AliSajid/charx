@@ -18,6 +18,8 @@ SPDX-License-Identifier: 0BSD
 ![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/cargo/charx)
 ![GitHub commits since latest release](https://img.shields.io/github/commits-since/alisajid/charx/latest)
 ![GitHub Created At](https://img.shields.io/github/created-at/AliSajid/charx)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9684/badge)](https://www.bestpractices.dev/projects/9684)
+![OSSF-Scorecard Score](https://img.shields.io/ossf-scorecard/github.com/AliSajid/charx)
 
 [![Code of Conduct: Contributor Covenant](https://img.shields.io/badge/code_of_conduct-contributor_covenant-14cc21)](https://github.com/EthicalSource/contributor_covenant)
 
