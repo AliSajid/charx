@@ -15,7 +15,7 @@ target/
 !scripts/
 
 meta/vale-styles/*
-!meta/vale-styles/config/vocabularies/Custom/accept.txt
+!meta/vale-styles/config/
 
 ltex.*
 
