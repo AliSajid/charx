@@ -12,6 +12,9 @@ env:
     SEMREL_RUST_VERSION: 2.1.53
 concurrency:
     group: ${{ github.workflow }}
+permissions:
+  contents: read
+
 jobs:
     release:
         name: Semantic Release
@@ -22,6 +25,11 @@ jobs:
             new_release_notes: ${{steps.semantic.outputs.new_release_notes}}
             new_release_channel: ${{steps.semantic.outputs.new_release_channel}}
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+              with:
+                egress-policy: audit
+
             - name: Checkout
               uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
               with:
