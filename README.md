@@ -13,6 +13,7 @@ SPDX-License-Identifier: 0BSD
 ![Crates.io](https://img.shields.io/crates/l/charx)
 [![REUSE status](https://api.reuse.software/badge/github.com/AliSajid/brainfoamkit)](https://api.reuse.software/info/github.com/AliSajid/brainfoamkit)
 ![Codecov](https://img.shields.io/codecov/c/github/AliSajid/charx)
+![OSS Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2FAliSajid%2Fcharx%2Fblob%2Fmain%2FOSSMETADATA)
 
 [![Code of Conduct: Contributor Covenant](https://img.shields.io/badge/code_of_conduct-contributor_covenant-14cc21)](https://github.com/EthicalSource/contributor_covenant)
 
