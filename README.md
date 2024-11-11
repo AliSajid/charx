@@ -23,6 +23,7 @@ SPDX-License-Identifier: 0BSD
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/AliSajid/charx)
 ![OSSF-Scorecard Score](https://img.shields.io/ossf-scorecard/github.com/AliSajid/charx)
 [![docs.rs](https://img.shields.io/docsrs/charx)](https://docs.rs/charx)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [![Code of Conduct: Contributor Covenant](https://img.shields.io/badge/code_of_conduct-contributor_covenant-14cc21)](https://github.com/EthicalSource/contributor_covenant)
 
