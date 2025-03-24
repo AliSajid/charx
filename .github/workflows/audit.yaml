@@ -28,15 +28,13 @@ jobs:
             - name: Checkout
               uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
-            - name: Install Rust
-              uses: dtolnay/rust-toolchain@ed2356ad628626a6b3f5be6c3e0255c0454fcdb9
-              with:
-                toolchain: stable
+            - name: Install mise
+              uses: jdx/mise-action@v2
+              env:
+                MISE_ENV: audit
 
-            - name: Install cargo-audit
-              uses: taiki-e/install-action@f2b65a3e67b2ba5ed3b4a631b5e460896e975708 # v2.42.37
-              with:
-                tool: cargo-audit
+            - name: Check cargo-audit exists
+              run: . "$HOME/.cargo/env" & which cargo-audit & which cargo & cargo --list & echo $PATH & cargo audit --help
 
             - name: Security Audit
-              run: cargo audit
+              run: cargo-audit audit
