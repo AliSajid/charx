@@ -39,4 +39,4 @@ jobs:
                 tool: cargo-audit
 
             - name: Security Audit
-              run: cargo audit
+              run: cargo-audit audit
