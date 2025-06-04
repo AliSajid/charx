@@ -12,6 +12,11 @@ jobs:
       image: xd009642/tarpaulin:develop-nightly@sha256:feeacc46b481a519b573e09edbd2c438e1c9fae89317ed312fbd00dfd1dacb54
       options: --security-opt seccomp=unconfined
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       # Nightly Rust is required for cargo llvm-cov --doc.
@@ -21,11 +26,13 @@ jobs:
       - uses: taiki-e/install-action@1cefd1553b1693f47889dc747f7d230904296a3b # v2.52.6
         with:
           tool: cargo-llvm-cov,nextest
+
       - name: Collect coverage data (including doctests)
         run: |
           cargo llvm-cov --no-report nextest --config-file nextest.toml
           cargo llvm-cov --no-report --doc
           cargo llvm-cov report --doctests --lcov --output-path lcov.info
+
       - name: Upload to codecov.io
         uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
         with:
@@ -33,6 +40,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
           working-directory: .
+
       - name: Upload to Codacy
         uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699 # v1.3.0
         with:
