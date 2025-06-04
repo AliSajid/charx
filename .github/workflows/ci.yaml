@@ -27,10 +27,10 @@ jobs:
       book_changed: ${{steps.changed_dirs.outputs.book}}
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
         with:
           egress-policy: audit
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Check changed directories
         id: changed_dirs
         uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
@@ -82,25 +82,25 @@ jobs:
             label: nightly
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
         with:
           egress-policy: audit
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Install Rust
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
-        uses: dtolnay/rust-toolchain@7b1c307e0dcbda6122208f10795a713336a9b35a # master
+        uses: dtolnay/rust-toolchain@b3b07ba8b418998c39fb20f53e8b695cdcc8de1b # master
         with:
           toolchain: ${{matrix.rust}}
           components: rustfmt, clippy
       - name: Install nightly Rust
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
-        uses: dtolnay/rust-toolchain@83bdede770b06329615974cf8c786f845d824dfb # nightly
+        uses: dtolnay/rust-toolchain@b3b07ba8b418998c39fb20f53e8b695cdcc8de1b # nightly
         with:
           toolchain: nightly
           components: rustfmt, clippy
       - name: Cache dependencies
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
-        uses: Swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
+        uses: Swatinem/rust-cache@9d47c6ad4b02e050fd481d890b2ea34778fd09d6 # v2.7.8
       - name: Cargo Build
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         run: cargo build --verbose
@@ -115,7 +115,7 @@ jobs:
         run: cargo clippy -- -D warnings
       - name: Wait before badge creation
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
-        uses: AliSajid/random-wait-action@f9109712daa7a8103f7be16b68634b9d376587a7 # v2.4.1
+        uses: AliSajid/random-wait-action@cd6450856f807a0b8e50d872f4c80f09249ffe59 # v2.11.0
         with:
           minimum: ${{env.MINIMUM_WAIT}}
           maximum: ${{env.MAXIMUM_WAIT}}
