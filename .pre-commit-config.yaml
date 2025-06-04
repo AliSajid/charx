@@ -114,12 +114,12 @@ repos:
       - id: forbid-tabs
       - id: remove-tabs
   - repo: https://github.com/google/yamlfmt
-    rev: v0.13.0
+    rev: v0.17.0
     hooks:
       - id: yamlfmt
         exclude: ".github/workflows/.*\\.ya?ml"
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
+    rev: v0.45.0
     hooks:
       - id: markdownlint
         args:
@@ -134,14 +134,14 @@ repos:
           - ".secrets.baseline"
         exclude: "meta/licenses.*"
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.6.7
+    rev: 0.6.8
     hooks:
       - id: fix-smartquotes
         exclude: "licenses_report.json"
       - id: fix-ligatures
       - id: forbid-bidi-controls
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.18.4
+    rev: v8.27.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/fsfe/reuse-tool
