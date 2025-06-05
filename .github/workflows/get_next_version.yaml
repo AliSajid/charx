@@ -26,21 +26,16 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        name: Setup PNPM
       - name: Configure Node.js
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: lts/*
-      - name: Cache action npm dependencies
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
-        id: cache-node-modules
-        with:
-          path: ${{ runner.temp }}/.semantic-release-action_next-release-version/node_modules
-          key: |
-            semantic-release-action/next-release-version-${{ runner.os }}-node-${{ hashFiles('${{ github.action_path }}/package-lock.json') }}
+          cache: pnpm
       - name: Install dependencies on cache miss
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: |
-          npm install -g semantic-release semantic-release-export-data
+          pnpm install -g semantic-release semantic-release-export-data
         shell: bash
       - name: Get next release version
         id: get-next-version
