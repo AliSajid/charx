@@ -13,7 +13,8 @@ on:
       - '**/Cargo.lock'
   workflow_dispatch:
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
     security_audit:

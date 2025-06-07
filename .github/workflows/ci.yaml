@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: 0BSD
 name: Continuous integration
+
 on:
   push:
   pull_request:
@@ -10,15 +11,20 @@ on:
     types:
       - closed
   workflow_dispatch:
+
 concurrency:
   group: ${{github.event.ref}}
   cancel-in-progress: true
+
 env:
   GIST_KEY: d52f912107d7609656370db9d741596c # pragma: allowlist secret
   RUST_BACKTRACE: 1
   MINIMUM_WAIT: 3
   MAXIMUM_WAIT: 10
-permissions: read-all
+
+permissions:
+  contents: read
+
 jobs:
   check_changed_dirs:
     runs-on: ubuntu-latest

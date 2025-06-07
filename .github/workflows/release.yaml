@@ -3,14 +3,19 @@
 # SPDX-License-Identifier: 0BSD
 on:
   workflow_call:
+
 name: Semantic Release
+
 env:
   RUST_BACKTRACE: 1
   SEMREL_RUST_VERSION: 2.1.53
+
 concurrency:
   group: ${{ github.workflow }}
+
 permissions:
   contents: read
+
 jobs:
   release:
     name: Semantic Release
@@ -25,11 +30,13 @@ jobs:
         uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
         with:
           egress-policy: audit
+
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           persist-credentials: false
+
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@e89d40939c28e39f97cf32126055eeae86ba74ec # v6.3.0
         with:
@@ -42,16 +49,21 @@ jobs:
           git_tag_gpgsign: false
           git_committer_name: ${{ vars.GIT_AUTHOR_NAME }}
           git_committer_email: ${{ vars.GIT_AUTHOR_EMAIL }}
+
       - name: Test GPG Key Import
         run: gpg --list-keys --keyid-format LONG
+
       - name: Install dependencies
         run: sudo apt install tree
+
       - name: Install semantic-release-cargo
         uses: taiki-e/install-action@1cefd1553b1693f47889dc747f7d230904296a3b # v2.52.6
         with:
           tool: semantic-release-cargo@${{env.SEMREL_RUST_VERSION}}
+
       - name: Install Conventional Commit preset
         run: npm install conventional-changelog-conventionalcommits
+
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@0a51e81a6baff2acad3ee88f4121c589c73d0f0e # v4.2.0
         id: semantic
