@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 
 SPDX-License-Identifier: 0BSD
 -->
@@ -21,7 +21,7 @@ BSD Zero Clause License
 
 #### Used by
 
-- [charx]( https://github.com/AliSajid/charx ) 1.0.2
+- [charx]( https://github.com/AliSajid/charx ) 1.1.0
 
 #### License
 
