@@ -16,6 +16,7 @@ jobs:
     container:
       image: xd009642/tarpaulin:develop-nightly@sha256:feeacc46b481a519b573e09edbd2c438e1c9fae89317ed312fbd00dfd1dacb54
       options: --security-opt seccomp=unconfined
+
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
