@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
+# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 #
 # SPDX-License-Identifier: CC0-1.0
 
@@ -12,13 +12,13 @@ path = [
   ".markdownlintignore",
 ]
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = "Cargo.lock"
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "0BSD"
 
 [[annotations]]
@@ -35,29 +35,29 @@ path = [
   "OSSMETADATA",
 ]
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = ".github/workflows/*"
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = [".github/ISSUE_TEMPLATE/*", ".github/PULL_REQUEST_TEMPLATE.md"]
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = ["CHANGELOG.md"]
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = ["meta/vale-styles/config/vocabularies/**/*.txt"]
 precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2024 Ali Sajid Imami"
+SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
