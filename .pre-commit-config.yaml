@@ -53,7 +53,7 @@ repos:
         types: [markdown]
         files: "^(README.md|CONTRIBUTING.md|CODE_OF_CONDUCT.md|guide/src/.*.md)$"
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.8.2
+    rev: v4.8.3
     hooks:
       - id: commitizen
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -114,7 +114,7 @@ repos:
       - id: forbid-tabs
       - id: remove-tabs
   - repo: https://github.com/google/yamlfmt
-    rev: v0.17.0
+    rev: v0.17.2
     hooks:
       - id: yamlfmt
         exclude: ".github/workflows/.*\\.ya?ml"
@@ -141,7 +141,7 @@ repos:
       - id: fix-ligatures
       - id: forbid-bidi-controls
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.27.0
+    rev: v8.27.2
     hooks:
       - id: gitleaks
   - repo: https://github.com/fsfe/reuse-tool
