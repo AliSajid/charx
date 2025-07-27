@@ -134,14 +134,14 @@ repos:
           - ".secrets.baseline"
         exclude: "meta/licenses.*"
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.6.8
+    rev: 0.7.1
     hooks:
       - id: fix-smartquotes
         exclude: "licenses_report.json"
       - id: fix-ligatures
       - id: forbid-bidi-controls
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.27.2
+    rev: v8.28.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/fsfe/reuse-tool
