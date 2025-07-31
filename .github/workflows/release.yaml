@@ -12,7 +12,7 @@ env:
 
 concurrency:
     group: ${{ github.workflow }}
-  group: ${{ github.workflow }}
+
 permissions:
   contents: read
 jobs:
