@@ -109,33 +109,41 @@ jobs:
         with:
           toolchain: ${{matrix.rust}}
           components: rustfmt, clippy
+
       - name: Install nightly Rust
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         uses: dtolnay/rust-toolchain@b3b07ba8b418998c39fb20f53e8b695cdcc8de1b # nightly
         with:
           toolchain: nightly
           components: rustfmt, clippy
+
       - name: Cache dependencies
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         uses: Swatinem/rust-cache@98c8021b550208e191a6a3145459bfc9fb29c4c0 # v2.8.0
+
       - name: Cargo Build
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         run: cargo build --verbose
+
       - name: Cargo Test
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         run: cargo test
+
       - name: Cargo Format
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         run: cargo +nightly fmt --all -- --check
+
       - name: Cargo Lint
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         run: cargo clippy -- -D warnings
+
       - name: Wait before badge creation
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         uses: AliSajid/random-wait-action@cd6450856f807a0b8e50d872f4c80f09249ffe59 # v2.11.0
         with:
           minimum: ${{env.MINIMUM_WAIT}}
           maximum: ${{env.MAXIMUM_WAIT}}
+
       - name: Create Awesome Badge - Success
         uses: schneegans/dynamic-badges-action@e9a478b16159b4d31420099ba146cdc50f134483 # v1.7.0
         if: success()
@@ -148,6 +156,7 @@ jobs:
           logoSvg: ${{matrix.logoSvg}}
           message: Succeeded
           color: green
+
       - name: Create Awesome Badge - Failure
         uses: schneegans/dynamic-badges-action@e9a478b16159b4d31420099ba146cdc50f134483 # v1.7.0
         if: failure()
@@ -160,6 +169,7 @@ jobs:
           label: Build
           message: Failed
           isError: true
+
       - name: Set Result
         if: always()
         id: result
