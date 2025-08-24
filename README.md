@@ -14,7 +14,7 @@ SPDX-License-Identifier: 0BSD
 ![crates.io package](https://img.shields.io/crates/v/charx.svg)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/release/AliSajid/charx)
 ![Crates.io](https://img.shields.io/crates/l/charx)
-[![REUSE status](https://api.reuse.software/badge/github.com/AliSajid/brainfoamkit)](https://api.reuse.software/info/github.com/AliSajid/brainfoamkit)
+[![REUSE status](https://api.reuse.software/badge/github.com/AliSajid/charx)](https://api.reuse.software/info/github.com/AliSajid/charx)
 ![Codecov](https://img.shields.io/codecov/c/github/AliSajid/charx)
 ![OSS Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2FAliSajid%2Fcharx%2Fblob%2Fmain%2FOSSMETADATA)
 ![Crates.io MSRV](https://img.shields.io/crates/msrv/charx)
