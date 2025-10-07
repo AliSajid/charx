@@ -56,7 +56,7 @@ jobs:
         run: sudo apt install tree
 
       - name: Install semantic-release-cargo
-        uses: taiki-e/install-action@5ab30948b991e8d6aa5a6c1e33c6aea130c6de65 # v2.62.12
+        uses: taiki-e/install-action@eba4035583f0f9b001a27be2cce0a136d05d05e3 # v2.62.23
         with:
           tool: semantic-release-cargo@${{env.SEMREL_RUST_VERSION}}
 
