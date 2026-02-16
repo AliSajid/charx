@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2023 - 2024 Ali Sajid Imami
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[tools]
+rust = "1.59.0"
+"cargo:bacon" = "3.7.0"
+"cargo:cargo-about" = "0.6.6"
+"cargo:cargo-audit" = "0.22.1"
