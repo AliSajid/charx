@@ -53,7 +53,7 @@ repos:
         types: [markdown]
         files: "^(README.md|CONTRIBUTING.md|CODE_OF_CONDUCT.md|guide/src/.*.md)$"
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.8.3
+    rev: v4.13.8
     hooks:
       - id: commitizen
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -88,7 +88,7 @@ repos:
         args:
           - --markdown-linebreak-ext=md
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v4.2.0
+    rev: v4.4.0
     hooks:
       - args:
           - build
@@ -107,19 +107,19 @@ repos:
         stages:
           - commit-msg
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: forbid-crlf
       - id: remove-crlf
       - id: forbid-tabs
       - id: remove-tabs
   - repo: https://github.com/google/yamlfmt
-    rev: v0.17.2
+    rev: v0.21.0
     hooks:
       - id: yamlfmt
         exclude: ".github/workflows/.*\\.ya?ml"
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+    rev: v0.47.0
     hooks:
       - id: markdownlint
         args:
@@ -141,11 +141,11 @@ repos:
       - id: fix-ligatures
       - id: forbid-bidi-controls
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.27.2
+    rev: v8.30.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/fsfe/reuse-tool
-    rev: v6.1.0
+    rev: v6.2.0
     hooks:
       - id: reuse
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
