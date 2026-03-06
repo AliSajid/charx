@@ -30,12 +30,12 @@ env:
 concurrency:
   group: ${{ github.workflow }}
 permissions:
-  contents: read
+  contents: write
 jobs:
   release:
     name: Semantic Release
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.new_release }}
+    if: ${{ inputs.new_release }}
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
@@ -71,7 +71,7 @@ jobs:
         if: ${{inputs.prerelease}}
         run: echo "prerelease_flag='--pre'" >>"$GITHUB_OUTPUT"
       - name: Bump the version
-        run: echo cog bump --auto ${{ steps.outputs.prerelease_flag }}
+        run: echo cog bump --auto ${{ steps.prerelease_flag.outputs.prerelease_flag }}
         shell: bash
     # - name: Install semantic-release-cargo
     #   uses: taiki-e/install-action@5ab30948b991e8d6aa5a6c1e33c6aea130c6de65 # v2.62.12
