@@ -1,68 +1,47 @@
 # SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 #
 # SPDX-License-Identifier: 0BSD
-name: Next semantic-release version
-
+name: Next version release check
 on:
-    workflow_call:
-        outputs:
-            new-release-published:
-                description: Indicates whether a new release will be published. The value is a string, either 'true' or 'false'.
-                value: ${{ jobs.get-next-version.outputs.new-release-published }}
-
+  workflow_call:
+    outputs:
+      new_release:
+        description: "Whether or not a new release needs to be published"
+        value: ${{jobs.preflight.outputs.new_release}}
+      new_release_version:
+        description: "Whether or not a new release needs to be published"
+        value: ${{jobs.preflight.outputs.new_release_version}}
+      prerelease:
+        description: "Whether or not a new release needs to be published"
+        value: ${{jobs.preflight.outputs.prerelease}}
 permissions:
   contents: read
 jobs:
-  get-next-version:
-    name: Get next release version
+  preflight:
+    name: Preflight Checks for Release
     runs-on: ubuntu-latest
     outputs:
-      new-release-published: ${{ steps.get-next-version.outputs.new-release-published }}
+      new_release: ${{steps.new_release_check.outputs.new_release}}
+      prerelease: ${{steps.new_release_check.outputs.prerelease}}
+      new_release_version: ${{steps.new_release_check.outputs.new_release_version}}
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
-          egress-policy: block
-          allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
-
+          egress-policy: audit
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-        name: Setup PNPM
+      - name: Setup mise-en-place
+        uses: jdx/mise-action@e79ddf65a11cec7b0e882bedced08d6e976efb2d # v3.6.2
         with:
-          version: 10.17.1
-
-      - name: Configure Node.js
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: 24.x
-
-      - name: Install dependencies on cache miss
-        run: |
-          pnpm install -g semantic-release semantic-release-export-data
-        shell: bash
-
-      - name: Get next release version
-        id: get-next-version
-        env:
-          GITHUB_TOKEN: ${{secrets.ACTIONS_PAT_GITHUB}}
-        run: |
-          : calculate next semantic-release version
-          semantic-release \
-          --dry-run \
-          --plugins semantic-release-export-data \
-          --verify-conditions semantic-release-export-data \
-          --verify-release '' \
-          --generate-notes semantic-release-export-data \
-          --prepare '' \
-          --publish '' \
-          --success '' \
-          --fail ''
+          version: latest
+          install: true
+          experimental: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Preflight checks for release
+        id: new_release_check
+        run: mise run check-new-release ${{github.events.base_ref}}
         shell: bash
