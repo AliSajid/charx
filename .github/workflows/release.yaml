@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
 #
 # SPDX-License-Identifier: 0BSD
+name: Semantic Release
 on:
   workflow_call:
-name: Semantic Release
 env:
   RUST_BACKTRACE: 1
 concurrency:
@@ -11,40 +11,9 @@ concurrency:
 permissions:
   contents: read
 jobs:
-  preflight:
-    name: Preflight Checks for Release
-    runs-on: ubuntu-latest
-    outputs:
-      new_release: ${{steps.new_release_check.outputs.new_release}}
-      prerelease: ${{steps.prerelease_check.outputs.prerelease}}
-      new_release_version: ${{steps.new_release_check.outputs.new_release_version}}
-    steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
-        with:
-          egress-policy: audit
-      - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Setup mise-en-place
-        uses: jdx/mise-action@e79ddf65a11cec7b0e882bedced08d6e976efb2d # v3.6.2
-        with:
-          version: latest
-          install: true
-          experimental: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Preflight checks for release
-        id: new_release_check
-        run: mise run check-new-release ${{github.events.base_ref}}
-        shell: bash
   release:
     name: Semantic Release
     runs-on: ubuntu-latest
-    if: ${{needs.preflight.outputs.new_release}}
-    needs:
-      - preflight
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
