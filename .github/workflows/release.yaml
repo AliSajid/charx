@@ -14,6 +14,17 @@ on:
       prerelease:
         description: "Whether or not a new release needs to be published"
         type: boolean
+  workflow_dispatch:
+    inputs:
+      new_release:
+        description: "Whether or not a new release needs to be published"
+        type: boolean
+      new_release_version:
+        description: "Whether or not a new release needs to be published"
+        type: string
+      prerelease:
+        description: "Whether or not a new release needs to be published"
+        type: boolean
 env:
   RUST_BACKTRACE: 1
 concurrency:
