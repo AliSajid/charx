@@ -8,6 +8,7 @@
 #MISE description="Dry-run semantic-release to see whether we are doing a release"
 
 NEXT_VERSION=$(cog bump --auto --dry-run --skip-untracked)
+CALLING_BRANCH=$1
 
 if [ "$NEXT_VERSION" == "" ]; then
     echo "Bump-able commits found."
@@ -19,5 +20,12 @@ else
     echo "There will be no next version."
     echo "new_release=false" >>"$GITHUB_OUTPUT"
     echo "new_release_version=''" >>"$GITHUB_OUTPUT"
+fi
 
+if [ "$CALLING_BRANCH" == "next" ]; then
+    echo "called from 'next' branch"
+    echo "prerelease=true" >>"$GITHUB_OUTPUT"
+else
+    echo "called from 'main' branch"
+    echo "prerelease=false" >>"$GITHUB_OUTPUT"
 fi
