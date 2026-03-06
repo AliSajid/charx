@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       new_release: ${{steps.new_release_check.outputs.new_release}}
-      prerelease: ${{steps.prerelease_check.outputs.prerelease|false}}
+      prerelease: ${{steps.prerelease_check.outputs.prerelease}}
       new_release_version: ${{steps.new_release_check.outputs.new_release_version}}
     steps:
       - name: Harden Runner
@@ -28,9 +28,6 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Check Prerelease
-        if: ${{ github.event.ref_name == "next"}}
-        run: echo "prerelease=true" >> $GITHUB_OUTPUT
       - name: Setup mise-en-place
         uses: jdx/mise-action@e79ddf65a11cec7b0e882bedced08d6e976efb2d # v3.6.2
         with:
@@ -38,9 +35,9 @@ jobs:
           install: true
           experimental: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Check for new release
+      - name: Preflight checks for release
         id: new_release_check
-        run: mise run check-new-release
+        run: mise run check-new-release ${{github.events.base_ref}}
         shell: bash
   release:
     name: Semantic Release
