@@ -42,5 +42,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Preflight checks for release
         id: new_release_check
-        run: mise run get-next-release ${{github.events.base_ref}}
+        run: mise run get-next-version ${{github.events.base_ref}}
         shell: bash
