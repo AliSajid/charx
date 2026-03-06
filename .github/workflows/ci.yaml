@@ -159,13 +159,17 @@ jobs:
     needs: [ci, check_changed_dirs]
     if: ${{needs.check_changed_dirs.outputs.source_changed == 'true'}}
     secrets: inherit # pragma: allowlist secret
-  get-next-version:
+  get_next_version:
     uses: ./.github/workflows/get_next_version.yaml
     needs: [ci, check_changed_dirs]
     if: ${{needs.ci.outputs.result == 'success'}}
     secrets: inherit # pragma: allowlist secret
   semantic-release:
-    needs: [ci, get-next-version]
-    if: ${{needs.get-next-version.outputs.new-release-published == 'true'}}
+    needs: [ci, get_next_version]
+    if: ${{needs.get_next_version.outputs.new_release == 'true'}}
     uses: ./.github/workflows/release.yaml
     secrets: inherit # pragma: allowlist secret
+    with:
+      new_release: ${{needs.get_next_version.outputs.new_release}}
+      new_release_version: ${{needs.get_next_version.outputs.new_release_version}}
+      prerelease: ${{needs.get_next_version.outputs.prerelease}}
