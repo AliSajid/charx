@@ -170,6 +170,6 @@ jobs:
     uses: ./.github/workflows/release.yaml
     secrets: inherit # pragma: allowlist secret
     with:
-      new_release: ${{needs.get_next_version.outputs.new_release}}
+      new_release: ${{needs.get_next_version.outputs.new_release == 'true'}}
       new_release_version: ${{needs.get_next_version.outputs.new_release_version}}
-      prerelease: ${{needs.get_next_version.outputs.prerelease}}
+      prerelease: ${{needs.get_next_version.outputs.prerelease == 'true'}}
