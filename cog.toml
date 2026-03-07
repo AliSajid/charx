@@ -15,18 +15,20 @@ pre = "next.*"
 
 # cog.toml
 pre_bump_hooks = [
-    "cargo build --release",
-    "echo 'bumping from {{latest|0.0.0}} to {{version|0.0.1}}'",
     "cargo set-version {{version|0.0.1}}",
+    "cargo check --release",
+    "git add Cargo.toml Cargo.lock",
 ]
-
-# pre_bump_hooks = ["echo cargo set-version {{version}}", "cargo check --release"]
 
 # post_bump_hooks = [
 #     "git push",
 #     "git push origin {{version}}",
 #     "cargo publish --dry-run",
 # ]
+
+[bump_profiles.preflight]
+pre_bump_hooks = []
+post_bump_hooks = []
 
 
 [changelog]
