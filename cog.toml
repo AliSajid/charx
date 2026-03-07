@@ -14,7 +14,11 @@ tag_prefix = "v"
 pre = "next.*"
 
 
-pre_bump_hooks = ["cargo set-version {{current_version}}"]
+pre_bump_hooks = [
+    "echo cargo set-version {{current_version}}",
+    "cargo check --release",
+]
+
 post_bump_hooks = [
     "git push",
     "git push origin {{current_version}}",
