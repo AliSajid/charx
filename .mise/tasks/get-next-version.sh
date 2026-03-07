@@ -10,6 +10,10 @@
 NEXT_VERSION=$(cog bump --auto --dry-run --skip-untracked)
 CALLING_BRANCH=$1
 
+if [ -z "$CALLING_BRANCH" ]; then
+    exit 1
+fi
+
 case "$CALLING_BRANCH" in
 next)
     echo "called from 'next' branch"
