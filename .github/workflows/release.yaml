@@ -63,7 +63,7 @@ jobs:
         if: ${{inputs.prerelease}}
         run: echo "prerelease_flag=--pre" >>"$GITHUB_OUTPUT"
       - name: Get the next version number
-        run: echo "NEXT_VERSION=$(cog bump --auto ${{ steps.prerelease_flag.outputs.prerelease_flag}})" >>"$GITHUB_ENV"
+        run: echo "NEXT_VERSION=$(cog bump --dry-run --auto ${{ steps.prerelease_flag.outputs.prerelease_flag }})" >>"$GITHUB_ENV"
       - name: Bump the version
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.SEMREL_CRATES_IO }}
