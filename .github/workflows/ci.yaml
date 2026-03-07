@@ -173,5 +173,4 @@ jobs:
     secrets: inherit # pragma: allowlist secret
     with:
       new_release: ${{needs.get_next_version.outputs.new_release == 'true'}}
-      new_release_version: ${{needs.get_next_version.outputs.new_release_version}}
       prerelease: ${{needs.get_next_version.outputs.prerelease == 'true'}}
