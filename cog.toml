@@ -14,10 +14,10 @@ tag_prefix = "v"
 pre = "next.*"
 
 
-pre_bump_hooks = ["cargo set-version {{ version }}"]
+pre_bump_hooks = ["cargo set-version {{ current_version }}"]
 post_bump_hooks = [
     "git push",
-    "git push origin {{ version }}",
+    "git push origin {{ current_version }}",
     "cargo publish --dry-run",
 ]
 
