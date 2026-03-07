@@ -1,8 +1,9 @@
-## Unreleased (7d3b769..f2c81b3)
+## Unreleased (7d3b769..590fa52)
 
 #### Bug Fixes
 
-- empty commit to test things - (f2c81b3) - Ali Sajid Imami
+- update the CHANGELOG.md - (590fa52) - Ali Sajid Imami
+- update the release workflow - (af0505e) - Ali Sajid Imami
 
 #### Documentation
 
@@ -19,7 +20,7 @@
 - add the docs.rs build badge - (20a322b) - Ali Sajid Imami
 - add maintainability badges - (2ab36e5) - Ali Sajid Imami
 - add OSSF badges - (55ab3a1) - Ali Sajid Imami
-- add GitHub project metadata badges - (c5c0c24) - Ali Sajid Imami
+- add github project metadata badges - (c5c0c24) - Ali Sajid Imami
 - add the libraries.io badge - (c3ed50f) - Ali Sajid Imami
 - add the crates.io MSRV badge - (b46bd20) - Ali Sajid Imami
 - add the OSS Lifecycle badge - (765f6f0) - Ali Sajid Imami
@@ -32,7 +33,7 @@
 - add the docs.rs build badge - (6f7a6e0) - Ali Sajid Imami
 - add maintainability badges - (9fd218e) - Ali Sajid Imami
 - add OSSF badges - (b65f6ab) - Ali Sajid Imami
-- add GitHub project metadata badges - (9a4a63f) - Ali Sajid Imami
+- add github project metadata badges - (9a4a63f) - Ali Sajid Imami
 - add the libraries.io badge - (c4e942f) - Ali Sajid Imami
 - add the crates.io MSRV badge - (1a0b154) - Ali Sajid Imami
 - add the OSS Lifecycle badge - (9d61f97) - Ali Sajid Imami
@@ -43,7 +44,7 @@
 - add the docs.rs build badge - (e7f399b) - Ali Sajid Imami
 - add maintainability badges - (08a2e6c) - Ali Sajid Imami
 - add OSSF badges - (94bb99a) - Ali Sajid Imami
-- add GitHub project metadata badges - (dab1e2a) - Ali Sajid Imami
+- add github project metadata badges - (dab1e2a) - Ali Sajid Imami
 - add the libraries.io badge - (a1f34f6) - Ali Sajid Imami
 - add the crates.io MSRV badge - (1b0af41) - Ali Sajid Imami
 - add the OSS Lifecycle badge - (fa19b99) - Ali Sajid Imami
@@ -63,8 +64,9 @@
 #### Build system
 
 - (**license**) update license years for the repository - (ef39e36) - Ali Sajid Imami
-- update tool versions in `mise.toml` - (6919f42) - Ali Sajid Imami
-- add cog.toml for eventual cog integration - (f977e0b) - Ali Sajid Imami
+- remove java from dependencies - (abdcbb7) - Ali Sajid Imami
+- update tool versions in `mise.toml` - (da15725) - Ali Sajid Imami
+- add cog.toml for eventual cog integration - (bca5783) - Ali Sajid Imami
 - remove unnecessary files - (dc2e453) - Ali Sajid Imami
 - move to hk for pre-commit hooks - (0dede24) - Ali Sajid Imami
 - consolidate the mise.toml file - (bee78c4) - Ali Sajid Imami
@@ -87,6 +89,17 @@
 - (**audit**) update audit workflow - (8f874e2) - Ali Sajid Imami
 - (**permissions**) switch to harden-runner 'block' policy - (25f82af) - Ali Sajid Imami
 - (**permissions**) update ci top-level and job-level permissions - (def93bd) - Ali Sajid Imami
+- remove an unnecessary variable and ensure the version generation is current - (8e904b4) - Ali Sajid Imami
+- add steps to generate updated CHANGELOG and GitHub Release - (206a756) - Ali Sajid Imami
+- update propagated permissions - (778bbfd) - Ali Sajid Imami
+- fix some bits pointed out by copilot - (09a7b2f) - Ali Sajid Imami
+- add workflow-dispatch for the release workflow - (53de3fa) - Ali Sajid Imami
+- use the correct mise task x2 - (e426239) - Ali Sajid Imami
+- use the correct mise task - (65c6197) - Ali Sajid Imami
+- remove version specified from github actionfor mise - (c005b44) - Ali Sajid Imami
+- refactor ci workflow to orchestrate others - (1c6267d) - Ali Sajid Imami
+- moved prerelease check to the check-new-version task - (b846937) - Ali Sajid Imami
+- add a next-release-version check - (3b865ab) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (6ebe90e) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (854465d) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (2a1d2be) - Ali Sajid Imami
@@ -103,9 +116,9 @@
 - add the scorecard workflow (#30) - (279c91e) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (252b75d) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (5f74b65) - Ali Sajid Imami
-- pin the stable toolchain to a full length SHA (#68) - (b138650) - Ali Sajid Imami
+- pin the stable toolchain toa full length SHA (#68) - (b138650) - Ali Sajid Imami
 - add release-assets.githubusercontent.com as an allowed target - (ca8a941) - Ali Sajid Imami
-- pin the stable toolchain to a full length SHA - (3897c4d) - Ali Sajid Imami
+- pin the stable toolchain toa full length SHA - (3897c4d) - Ali Sajid Imami
 - remove syntax errors from ci workflows - (a4e0b6b) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (2e4c60c) - Ali Sajid Imami
 - add the scorecard workflow (#30) - (e34d28d) - Ali Sajid Imami
@@ -121,7 +134,7 @@
 - harden security for all workflows - (cc26d23) - Ali Sajid Imami
 - remove pnpm-cache option - (85d4e50) - Ali Sajid Imami
 - update node versions - (ec7277a) - Ali Sajid Imami
-- fix versions of GitHub actions - (8e2a004) - Ali Sajid Imami
+- fix versions of github actions - (8e2a004) - Ali Sajid Imami
 - update CI workflows - (3251afd) - Ali Sajid Imami
 - test the mise-based setup in audit workflow - (3e7f916) - Ali Sajid Imami
 - harden security for all workflows (#29) - (e2786b3) - Ali Sajid Imami
@@ -157,8 +170,8 @@
 - add the scorecard workflow - (f3220d4) - Ali Sajid Imami
 - ensure scorecard runs on next and main (#24) - (2560eff) - Ali Sajid Imami
 - ensure scorecard runs on next and main - (2581786) - Ali Sajid Imami
-- update naming for the GitHub actions (#23) - (8d5e2ec) - Ali Sajid Imami
-- update naming for the GitHub actions - (d1f25ef) - Ali Sajid Imami
+- update naming for the github actions (#23) - (8d5e2ec) - Ali Sajid Imami
+- update naming for the github actions - (d1f25ef) - Ali Sajid Imami
 - harden security for all workflows - (96b3a01) - Ali Sajid Imami
 - add code coverage for codacy - (2ff963c) - Ali Sajid Imami
 - harden security for all workflows (#17) - (8a2ec2b) - Ali Sajid Imami
@@ -173,6 +186,7 @@
 #### Miscellaneous Chores
 
 - (**config**) migrate config renovate.json - (fee6dd4) - renovate[bot]
+- (**deps**) update dependency java to v25.0.2+10.0.lts - (566ab74) - renovate[bot]
 - (**deps**) update repository maintenance - (ff2bea8) - renovate[bot]
 - (**deps**) update repository maintenance - (7473a21) - renovate[bot]
 - (**deps**) update repository maintenance - (c37f35a) - renovate[bot]
@@ -186,7 +200,7 @@
 - (**deps**) update actions/setup-node action to v5 - (fbc8709) - renovate[bot]
 - (**deps**) update repository maintenance - (e291353) - renovate[bot]
 - (**deps**) update cycjimmy/semantic-release-action action to v5 - (e3537c9) - renovate[bot]
-- (**deps**) update repository maintenance (#69) - (cc683f6) - renovate[bot]
+- (**deps**) update repository maintenance (#69) - (cc683f6) - renovate[bot], *renovate[bot]*
 - (**deps**) update repository maintenance - (7d598bc) - renovate[bot]
 - (**deps**) update repository maintenance - (7b2581c) - renovate[bot]
 - (**deps**) update actions/checkout action to v5 - (7a03b91) - renovate[bot]
@@ -208,7 +222,7 @@
 - (**deps**) update repository maintenance - (758d550) - renovate[bot]
 - (**deps**) update repository maintenance - (e4fb3d6) - renovate[bot]
 - (**deps**) update repository maintenance - (1a410c8) - renovate[bot]
-- (**deps**) update repository maintenance (major) (#38) - (ab20c71) - renovate[bot]
+- (**deps**) update repository maintenance (major) (#38) - (ab20c71) - renovate[bot], *renovate[bot]*, *Ali Sajid Imami*
 - (**deps**) update repository maintenance - (2d98da1) - renovate[bot]
 
 #### Style
@@ -219,11 +233,11 @@
 
 - - -
 
-## v1.1.0 - 2026-03-06
+## v1.1.0 - 2024-09-02
 
 #### Features
 
-- performance improvements with testing - (5115f74) - Ali Sajid Imami
+- performance imrpvoments with testing - (5115f74) - Ali Sajid Imami
 
 #### Bug Fixes
 
@@ -232,7 +246,7 @@
 #### Documentation
 
 - (**MSRV**) update MSRV to 1.59.0 - (59758ca) - Ali Sajid Imami
-- (**README**) updated the "open in gitpod" links - (add2663) - Ali Sajid Imami
+- (**readme**) updated the "open in gitpod" links - (add2663) - Ali Sajid Imami
 - update the build status matrix - (b755c1e) - Ali Sajid Imami
 - update the MSRV - (5136db2) - Ali Sajid Imami
 - update the name for a badge - (afdf84e) - Ali Sajid Imami
@@ -242,7 +256,7 @@
 - update the gitignore file to ignore node files - (5b3fa0c) - Ali Sajid Imami
 - add the bacon config file - (03f2114) - Ali Sajid Imami
 - remove unnecessary build key from Cargo.toml - (b472585) - Ali Sajid Imami
-- update the releaserc file for the new version - (08641cd) - Ali Sajid Imami
+- update the releasrc file for the new version - (08641cd) - Ali Sajid Imami
 - add nextest.toml configuration - (ff3e41d) - Ali Sajid Imami
 - update the MSRV in the Cargo.toml - (da5609c) - Ali Sajid Imami
 - update the files to be reuse compliant - (2d86d6e) - Ali Sajid Imami
@@ -250,12 +264,12 @@
 #### Continuous Integration
 
 - (**integration**) increase minimum wait time for the wit action - (a5af4c0) - Ali Sajid Imami
-- update the output from schneegans GitHub action - (af6c6b4) - Ali Sajid Imami
+- update the output from schneegans github action - (af6c6b4) - Ali Sajid Imami
 - add a renovate config - (048ee33) - Ali Sajid Imami
 - update the ci runs to include the full matrix - (4c206b5) - Ali Sajid Imami
 - fix spacing in the CI workflow - (b2ee92d) - Ali Sajid Imami
 - fix the gist secret - (37008e1) - Ali Sajid Imami
-- remove the unneeded dependency from release workflow - (3a2c836) - Ali Sajid Imami
+- remove the unneded dependency from release workflow - (3a2c836) - Ali Sajid Imami
 - update the ci workflows - (ffe03b6) - Ali Sajid Imami
 - change the name for the release upload - (311dfbf) - Ali Sajid Imami
 - update the name for conditional run - (00869af) - Ali Sajid Imami
@@ -269,7 +283,7 @@
 - update version of the randome-wait-action - (562c109) - Ali Sajid Imami
 - update ci to use the random wait custom action - (33cd9a1) - Ali Sajid Imami
 - add random delay before updating badge data - (7d49ac7) - Ali Sajid Imami
-- add a random delay of 1-5 seconds before creating the badge - (c75abf4) - Ali Sajid Imami
+- add a randome delay of 1-5 seconds before creating the badge - (c75abf4) - Ali Sajid Imami
 
 #### Miscellaneous Chores
 
@@ -278,7 +292,7 @@
 
 - - -
 
-## v1.0.2 - 2026-03-06
+## v1.0.2 - 2022-10-28
 
 #### Bug Fixes
 
@@ -290,7 +304,7 @@
 
 - - -
 
-## v1.0.1 - 2026-03-06
+## v1.0.1 - 2022-10-28
 
 #### Bug Fixes
 
@@ -302,7 +316,7 @@
 
 - - -
 
-## v1.0.0 - 2026-03-06
+## v1.0.0 - 2022-10-28
 
 #### Bug Fixes
 
@@ -312,12 +326,12 @@
 
 #### Documentation
 
-- (**README**) update README with badges - (55a05c5) - Ali Sajid Imami
+- (**readme**) update readme with badges - (55a05c5) - Ali Sajid Imami
 - add code of conduct to the repo - (b8c126d) - Ali Sajid Imami
 - add a contributing guidelines file - (eec5a83) - Ali Sajid Imami
-- reorganize the README - (e2bdf93) - Ali Sajid Imami
-- updated README with correct badge - (c5b4910) - Ali Sajid Imami
-- update README with moved information - (11505e4) - Ali Sajid Imami
+- reorganize the readme - (e2bdf93) - Ali Sajid Imami
+- updated readme with correct badge - (c5b4910) - Ali Sajid Imami
+- update readme with moved information - (11505e4) - Ali Sajid Imami
 - updated docs for formatting and license - (99733a4) - Ali Sajid Imami
 
 #### Build system
@@ -334,9 +348,8 @@
 - updated gitignore - (61e68dd) - Ali Sajid Imami
 
 #### Continuous Integration
-<!-- vale Vale.Spelling = NO -->
+
 - (**github-actions**) added the standard rust github actions - (5f9f28a) - Ali Sajid Imami
-<!-- vale Vale.Spelling = YES -->
 - fix the final release file name - (b2e4d3c) - Ali Sajid Imami
 
 #### Miscellaneous Chores
