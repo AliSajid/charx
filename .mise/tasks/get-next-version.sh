@@ -18,12 +18,10 @@ next)
         echo "Bump-able commits found."
         echo "There will be a next version."
         echo "new_release=true" >>"$GITHUB_OUTPUT"
-        echo "new_release_version=${NEXT_VERSION}" >>"$GITHUB_OUTPUT"
     else
         echo "No bump-able commits found"
         echo "There will be no next version."
         echo "new_release=false" >>"$GITHUB_OUTPUT"
-        echo "new_release_version=" >>"$GITHUB_OUTPUT"
     fi
     ;;
 main)
@@ -33,18 +31,15 @@ main)
         echo "Bump-able commits found."
         echo "There will be a next version."
         echo "new_release=true" >>"$GITHUB_OUTPUT"
-        echo "new_release_version=${NEXT_VERSION}" >>"$GITHUB_OUTPUT"
     else
         echo "No bump-able commits found"
         echo "There will be no next version."
         echo "new_release=false" >>"$GITHUB_OUTPUT"
-        echo "new_release_version=" >>"$GITHUB_OUTPUT"
     fi
     ;;
 *)
     echo "Not on 'main' or 'next' branch. No release necessary"
     echo "new_release=false" >>"$GITHUB_OUTPUT"
-    echo "new_release_version=" >>"$GITHUB_OUTPUT"
     echo "prerelease=false" >>"$GITHUB_OUTPUT"
     ;;
 esac
