@@ -13,17 +13,20 @@ skip_untracked = false
 tag_prefix = "v"
 pre = "next.*"
 
-
+# cog.toml
 pre_bump_hooks = [
-    "echo cargo set-version {{current_version}}",
-    "cargo check --release",
+    "cargo build --release",
+    "echo 'bumping from {{latest|0.0.0}} to {{version|0.0.1}}'",
+    "cargo bump {{version|0.0.1}}",
 ]
 
-post_bump_hooks = [
-    "git push",
-    "git push origin {{current_version}}",
-    "cargo publish --dry-run",
-]
+# pre_bump_hooks = ["echo cargo set-version {{version}}", "cargo check --release"]
+
+# post_bump_hooks = [
+#     "git push",
+#     "git push origin {{version}}",
+#     "cargo publish --dry-run",
+# ]
 
 
 [changelog]
