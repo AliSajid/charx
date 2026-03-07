@@ -70,7 +70,7 @@ jobs:
         run: cog bump --auto ${{ steps.prerelease_flag.outputs.prerelease_flag }} --skip-ci
         shell: bash
       - name: Generate the Changelog
-        run: cog changelog --at ${{inputs.new_release_version}} > RELEASE_NOTES
+        run: cog changelog --at ${{ env.NEXT_VERSION }} | tee RELEASE_NOTES
       - name: Create a GitHub release
         uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
         with:
