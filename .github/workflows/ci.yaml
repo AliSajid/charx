@@ -166,6 +166,8 @@ jobs:
     secrets: inherit # pragma: allowlist secret
   semantic-release:
     needs: [ci, get_next_version]
+    permissions:
+      contents: write
     if: ${{needs.get_next_version.outputs.new_release == 'true'}}
     uses: ./.github/workflows/release.yaml
     secrets: inherit # pragma: allowlist secret
