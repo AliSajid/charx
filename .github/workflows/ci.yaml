@@ -154,7 +154,9 @@ jobs:
       - name: Set Result
         if: always()
         id: result
-        run: echo "result=${{job.status}}" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "result=${{job.status}}" >> "$GITHUB_OUTPUT"
+          echo "pull_request=${{github.event_name=='pull_request'}}" >> "$GITHUB_OUTPUT"
   generate_code_coverage:
     uses: ./.github/workflows/code_coverage.yaml
     needs: [ci, check_changed_dirs]
@@ -163,7 +165,7 @@ jobs:
   get_next_version:
     uses: ./.github/workflows/get_next_version.yaml
     needs: [ci, check_changed_dirs]
-    if: ${{ github.event_name == "pull_request" && needs.ci.outputs.result == 'success'}}
+    if: ${{ needs.ci.outputs.pull_request == "true" && needs.ci.outputs.result == 'success'}}
     secrets: inherit # pragma: allowlist secret
     with:
       base_ref: ${{github.event.base_ref}}
