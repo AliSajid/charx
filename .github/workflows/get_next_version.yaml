@@ -4,6 +4,10 @@
 name: Next version release check
 on:
   workflow_call:
+    inputs:
+      base_ref:
+        description: "The branch the PR is targeted to"
+        type: string
     outputs:
       new_release:
         description: "Whether or not a new release needs to be published"
@@ -37,5 +41,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Preflight checks for release
         id: new_release_check
-        run: mise run get-next-version ${{github.event.head_ref}}
+        run: mise run get-next-version ${{inputs.base_ref}}
         shell: bash
