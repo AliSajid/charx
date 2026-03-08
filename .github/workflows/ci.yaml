@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+      - next
     types:
       - closed
   workflow_dispatch:
@@ -162,8 +163,10 @@ jobs:
   get_next_version:
     uses: ./.github/workflows/get_next_version.yaml
     needs: [ci, check_changed_dirs]
-    if: ${{needs.ci.outputs.result == 'success'}}
+    if: ${{ github.event_name == "pull_request" && needs.ci.outputs.result == 'success'}}
     secrets: inherit # pragma: allowlist secret
+    with:
+      base_ref: ${{github.event.base_ref}}
   semantic-release:
     needs: [ci, get_next_version]
     permissions:
