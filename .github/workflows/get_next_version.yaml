@@ -8,6 +8,7 @@ on:
       base_ref:
         description: "The branch the PR is targeted to"
         type: string
+        required: true
     outputs:
       new_release:
         description: "Whether or not a new release needs to be published"
