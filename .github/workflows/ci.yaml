@@ -58,6 +58,7 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true) || github.event_name == 'workflow_dispatch'
     outputs:
       result: ${{steps.result.outputs.result}}
+      pull_request: ${{steps.result.outputs.pull_request}}
     strategy:
       fail-fast: false
       matrix:
