@@ -11,7 +11,8 @@ NEXT_VERSION=$(cog bump --auto --dry-run --skip-untracked)
 CALLING_BRANCH=$1
 
 if [ -z "$CALLING_BRANCH" ]; then
-    echo "No calling branch provided"
+    echo "Usage: $0 <calling-branch>" >&2
+    echo "No calling branch provided" >&2
     exit 1
 fi
 
