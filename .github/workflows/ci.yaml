@@ -169,7 +169,7 @@ jobs:
     if: ${{ needs.ci.outputs.pull_request == 'true' && needs.ci.outputs.result == 'success'}}
     secrets: inherit # pragma: allowlist secret
     with:
-      base_ref: ${{github.event.base_ref}}
+      base_ref: ${{github.base_ref}}
   semantic-release:
     needs: [ci, get_next_version]
     permissions:
