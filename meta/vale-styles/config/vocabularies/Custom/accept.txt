@@ -1,3 +1,4 @@
+(?i)backport(ed)?
 (?i)backtrace
 (?i)ci
 (?i)codacy
@@ -7,6 +8,7 @@
 (?i)sex(ual)?
 (?i)toolchain
 (?i)traceback
+(?i)you
 Ali
 Bogdan
 CLI
@@ -17,18 +19,18 @@ MIT
 MSRV
 Michie
 My
-[Nn]ightly
 Pshonyak
 Sajid
 TUI
 Tris
-You
 [Ee]num
 [Gg]ameplay
 [Gg]itpod
+[Nn]ightly
 [Ss]truct
 [Tt]ac
 [Tt]ic
+charx
 color(ed)?
 commitizen
 const
@@ -43,6 +45,5 @@ releaserc
 repo(status)?
 rotationally
 schneegans
-semrel
 semrel
 upload_release
