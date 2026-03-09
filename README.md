@@ -1,9 +1,6 @@
 <!--
-SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
-SPDX-FileCopyrightText: 2022 - 2024 Soni L.
-SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
-SPDX-FileCopyrightText: 2022 - 2024 Ali Sajid Imami
-SPDX-FileCopyrightText: 2022 - 2024 Soni L.
+SPDX-FileCopyrightText: 2022 - Ali Sajid Imami
+SPDX-FileCopyrightText: 2022 - Soni L.
 
 SPDX-License-Identifier: 0BSD
 -->

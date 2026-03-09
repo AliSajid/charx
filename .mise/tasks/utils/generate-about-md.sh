@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# SPDX-FileCopyrightText: 2022 - 2025 Ali Sajid Imami
+# SPDX-FileCopyrightText: 2022 - Ali Sajid Imami
 #
 # SPDX-License-Identifier: 0BSD
 
