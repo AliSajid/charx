@@ -19,9 +19,10 @@ jobs:
         uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
         with:
           egress-policy: block
-          allowed-endpoints: >
-            api.github.com:443 api.securityscorecards.dev:443 github.com:443
-
+          allowed-endpoints: |
+            api.github.com:443
+            api.securityscorecards.dev:443
+            github.com:443
       - name: "Checkout Repository"
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: "Dependency Review"
