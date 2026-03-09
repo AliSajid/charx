@@ -31,12 +31,6 @@ SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = ".github/workflows/*"
-precedence = "override"
-SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
-SPDX-License-Identifier = "CC0-1.0"
-
-[[annotations]]
 path = [".github/ISSUE_TEMPLATE/*"]
 precedence = "override"
 SPDX-FileCopyrightText = "2022 - 2025 Ali Sajid Imami"
