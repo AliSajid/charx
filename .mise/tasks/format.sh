@@ -7,4 +7,4 @@
 
 #MISE description="Format the codebase to the rustfmt standard"
 
-cargo +nightly fmt --all
+cargo fmt --all

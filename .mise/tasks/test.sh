@@ -8,7 +8,7 @@
 #MISE description="Run all the tests locally"
 #MISE alias="ta"
 #MISE sources=["Cargo.toml", "src/**/*.rs"]
-#MISE outputs=["target/debug/tactix*"]
+#MISE outputs=["target/debug/libcharx*"]
 #MISE depends=["clean", "build"]
 
 cargo nextest run
