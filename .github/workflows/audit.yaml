@@ -12,9 +12,7 @@ on:
       - "**/Cargo.toml"
       - "**/Cargo.lock"
   workflow_dispatch:
-
 permissions: read-all
-
 jobs:
   security_audit:
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
@@ -25,26 +23,15 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            github.com:443
-            index.crates.io:443
-            mise-versions.jdx.dev:80
-            mise.jdx.dev:443
-            objects.githubusercontent.com:443
-            static.crates.io:443
-            static.rust-lang.org:443
-            release-assets.githubusercontent.com
+            github.com:443 index.crates.io:443 mise-versions.jdx.dev:80 mise.jdx.dev:443 objects.githubusercontent.com:443 static.crates.io:443 static.rust-lang.org:443 release-assets.githubusercontent.com
 
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@6d653acede28d24f02e3cd41383119e8b1b35921 # stable
+      - name: Setup mise-en-place
+        uses: jdx/mise-action@e79ddf65a11cec7b0e882bedced08d6e976efb2d # v3.6.2
         with:
-          toolchain: stable
-      - name: Install cargo-audit
-        uses: taiki-e/install-action@5ab30948b991e8d6aa5a6c1e33c6aea130c6de65 # v2.62.12
-        with:
-          tool: cargo-audit
-
+          install: true
+          experimental: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Security Audit
         run: cargo-audit audit
