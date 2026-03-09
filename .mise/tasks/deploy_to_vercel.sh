@@ -5,43 +5,64 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-#MISE description="Build and Deploy the documentation website to Vercel"
-#MISE alias="docs"
+# [MISE] description="Build and deploy the docs site to Vercel"
+# [MISE] alias="docs"
 
-# Exit immediately if a command exits with a non-zero status
 set -euo pipefail
 
-# Ensure required environment variables are set
-if [[ -z "$PROJECT_ENVIRONMENT" || -z "$VERCEL_TOKEN" ]]; then
-    echo "Error: PROJECT_ENVIRONMENT and VERCEL_TOKEN must be set."
-    exit 1
+log() { printf '[deploy_to_vercel] %s\n' "$*"; }
+die() { printf '[deploy_to_vercel] ERROR: %s\n' "$*" >&2; exit 1; }
+require_cmd() { command -v "$1" >/dev/null 2>&1 || die "missing required command: $1"; }
+
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    cat <<'EOF'
+USAGE:
+  PROJECT_ENVIRONMENT=preview|production VERCEL_TOKEN=<token> mise run deploy_to_vercel
+
+Builds `guide/` with mdBook, then runs `vercel build` and `vercel deploy`.
+EOF
+    exit 0
 fi
 
+if [[ "$#" -ne 0 ]]; then
+    die "this task does not accept positional arguments"
+fi
+
+require_cmd mdbook
+require_cmd vercel
+
+PROJECT_ENVIRONMENT=${PROJECT_ENVIRONMENT:-}
+VERCEL_TOKEN=${VERCEL_TOKEN:-}
+[[ -n "$PROJECT_ENVIRONMENT" ]] || die "PROJECT_ENVIRONMENT must be set to preview or production"
+[[ -n "$VERCEL_TOKEN" ]] || die "VERCEL_TOKEN must be set"
+
+case "$PROJECT_ENVIRONMENT" in
+preview | production) ;;
+*) die "PROJECT_ENVIRONMENT must be 'preview' or 'production' (got: $PROJECT_ENVIRONMENT)" ;;
+esac
+
 # Step 1: Populate Preview Variables
-echo "Populating Vercel environment variables for environment: $PROJECT_ENVIRONMENT"
+log "Pulling Vercel environment variables for $PROJECT_ENVIRONMENT"
 vercel pull --yes --environment="$PROJECT_ENVIRONMENT" --token="$VERCEL_TOKEN"
 
 # Step 2: Build the Book
-echo "Building the book..."
+log "Building mdBook content"
 mdbook build guide
 
 # Common options for Vercel build and deploy commands
-BUILD_OPTIONS="--cwd guide/book --token=$VERCEL_TOKEN --yes --debug"
-DEPLOY_OPTIONS="--prebuilt $BUILD_OPTIONS --yes --debug"
+BUILD_OPTIONS=(--cwd guide/book --token "$VERCEL_TOKEN" --yes --debug)
+DEPLOY_OPTIONS=(--prebuilt --cwd guide/book --token "$VERCEL_TOKEN" --yes --debug)
 
 if [[ "$PROJECT_ENVIRONMENT" == "preview" ]]; then
-    echo "Building and deploying for Vercel (preview)..."
-    vercel build "$BUILD_OPTIONS"
-    vercel deploy "$DEPLOY_OPTIONS" >deployment_url
-elif [[ "$PROJECT_ENVIRONMENT" == "production" ]]; then
-    echo "Building and deploying for Vercel (production)..."
-    vercel build "$BUILD_OPTIONS"
-    vercel deploy "$DEPLOY_OPTIONS" --prod >deployment_url
+    log "Running preview deployment"
+    vercel build "${BUILD_OPTIONS[@]}"
+    vercel deploy "${DEPLOY_OPTIONS[@]}" >deployment_url
 else
-    echo "Error: Unknown PROJECT_ENVIRONMENT value: $PROJECT_ENVIRONMENT"
-    exit 1
+    log "Running production deployment"
+    vercel build "${BUILD_OPTIONS[@]}"
+    vercel deploy "${DEPLOY_OPTIONS[@]}" --prod >deployment_url
 fi
 
 # Output deployment URL
-echo "Deployment completed. Deployment URL:"
+log "Deployment completed. URL:"
 cat deployment_url

@@ -5,7 +5,16 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-#MISE description="Generate the cargo-about files"
+# [MISE] description="Generate machine-readable and markdown license reports"
+# [MISE] depends=["utils:generate-about-json", "utils:generate-about-md"]
 
-"./scripts/generate_about_json.sh"
-"./scripts/generate_about_md.sh" "./meta/licenses.hbs"
+set -euo pipefail
+
+log() { printf '[utils:generate-about] %s\n' "$*"; }
+die() { printf '[utils:generate-about] ERROR: %s\n' "$*" >&2; exit 1; }
+
+if [[ "$#" -ne 0 ]]; then
+	die "this task does not accept positional arguments"
+fi
+
+log "License reports generated"
