@@ -27,15 +27,15 @@ repos:
         pass_filenames: false
       - id: cargo-about-json
         name: Generate list of licenses in JSON
-        entry: scripts/generate_about_json.sh
-        language: script
+        entry: mise run utils:generate-about-json
+        language: system
         types_or: [file, rust]
         files: "Cargo.toml$"
         pass_filenames: false
       - id: cargo-about-md
         name: Generate list of licenses in Markdown
-        entry: scripts/generate_about_md.sh meta/licenses.hbs
-        language: script
+        entry: mise run utils:generate-about-md -- meta/licenses.hbs
+        language: system
         types_or: [file, rust]
         files: "Cargo.toml$"
         pass_filenames: false

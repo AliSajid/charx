@@ -4,9 +4,12 @@
 
 [tools]
 rust = "1.59.0"
+python = "3.13"
+jq = "1.8"
 "cargo:bacon" = "3.22.0"
 "cargo:cargo-about" = "0.8.4"
 "cargo:cargo-audit" = "0.22.1"
+"cargo:cross" = "latest"
 hk = "1.36.0"
 pkl = "0.30.2"
 "cargo:cargo-llvm-cov" = "0.8.4"
@@ -21,3 +24,4 @@ vale = "3.13.1"
 yamllint = "1.38.0"
 "cargo:cargo-edit" = "0.13.8"
 "aqua:nextest-rs/nextest/cargo-nextest" = "0.9.129"
+"npm:vercel" = "latest"

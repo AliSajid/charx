@@ -90,17 +90,17 @@ local rust_checks = new Mapping<String, Step> {
   // Name: Rust format
   ["fmt"] = new Step {
     types = List("rust")
-    check = "cargo +nightly fmt --all --quiet"
+    check = "cargo fmt --all --quiet"
   }
   // Name: Run clippy linter
   ["clippy"] = new Step {
     types = List("rust")
-    check = "cargo +nightly clippy --quiet --all-targets -- -D warnings"
+    check = "cargo clippy --quiet --all-targets -- -D warnings"
   }
   // Name: Run cargo check
   ["cargo-check"] = new Step {
     types = List("rust")
-    check = "cargo +nightly check --all-targets --quiet"
+    check = "cargo check --all-targets --quiet"
   }
 }
 
@@ -109,16 +109,10 @@ local rust_checks = new Mapping<String, Step> {
 // Cargo dependency tracking and license management
 // ============================================================================
 local dependency_checks = new Mapping<String, Step> {
-  // Name: Generate list of licenses in JSON
-  ["cargo-about-json"] = new Step {
+  // Name: Generate list of licenses in JSON and Markdown
+  ["cargo-about"] = new Step {
     glob = "Cargo.toml$"
-    check = "mise run generate_about_json"
-    exclusive = true
-  }
-  // Name: Generate list of licenses in Markdown
-  ["cargo-about-md"] = new Step {
-    glob = "Cargo.toml$"
-    check = "mise run generate_about_md meta/licenses.hbs"
+    check = "mise run utils:generate_about"
     exclusive = true
   }
   // Name: Check Cargo.toml

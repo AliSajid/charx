@@ -5,17 +5,30 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-License-Identifier: MIT
 
-#MISE description="Rebuild the Cargo.lock file after fixing conflicts"
+# [MISE] description="Rebuild Cargo.lock after merge conflict resolution"
 
-if [ -f Cargo.lock ]; then
-    echo "Removing the conflicted Cargo.lock file"
+set -euo pipefail
+
+log() { printf '[utils:fix-lockfile] %s\n' "$*"; }
+die() { printf '[utils:fix-lockfile] ERROR: %s\n' "$*" >&2; exit 1; }
+require_cmd() { command -v "$1" >/dev/null 2>&1 || die "missing required command: $1"; }
+
+if [[ "$#" -ne 0 ]]; then
+    die "this task does not accept positional arguments"
+fi
+
+require_cmd cargo
+
+if [[ -f Cargo.lock ]]; then
+    log "Removing existing Cargo.lock"
     rm -v Cargo.lock
-    echo "Updating the cargo dependencies"
+    log "Regenerating lockfile via cargo update"
     cargo update
 elif [[ -f Cargo.toml ]]; then
-    echo "No existing lock file found. Updating"
+    log "No existing Cargo.lock found; generating one via cargo update"
     cargo update
 else
-    echo "Likely not in a rust project. Aborting"
-    exit 1
+    die "Cargo.toml not found; this task must run in a Rust project root"
 fi
+
+log "Lockfile refresh completed"
