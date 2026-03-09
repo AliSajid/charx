@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2023 - 2024 Ali Sajid Imami
 #
 # SPDX-License-Identifier: CC0-1.0
@@ -8,49 +9,59 @@ repos:
         name: Rust format
         entry: cargo +nightly fmt --all
         language: system
-        types: [rust]
+        types:
+          - rust
         files: \.rs$
         pass_filenames: false
       - id: clippy
         name: Run clippy linter
         entry: cargo +nightly clippy --all-targets --all-features -- -D warnings
         language: system
-        types: [rust]
+        types:
+          - rust
         files: \.rs$
         pass_filenames: false
       - id: cargo-check
         name: Run cargo check
         entry: cargo +nightly check --all-targets --all-features
         language: system
-        types: [rust]
+        types:
+          - rust
         files: \.rs$
         pass_filenames: false
       - id: cargo-about-json
         name: Generate list of licenses in JSON
         entry: mise run utils:generate-about-json
         language: system
-        types_or: [file, rust]
+        types_or:
+          - file
+          - rust
         files: "Cargo.toml$"
         pass_filenames: false
       - id: cargo-about-md
         name: Generate list of licenses in Markdown
         entry: mise run utils:generate-about-md -- meta/licenses.hbs
         language: system
-        types_or: [file, rust]
+        types_or:
+          - file
+          - rust
         files: "Cargo.toml$"
         pass_filenames: false
       - id: cargo-toml-lint
         name: Check Cargo.toml
         entry: cargo-toml-lint
         language: system
-        types_or: [file, rust]
+        types_or:
+          - file
+          - rust
         files: "Cargo.toml$"
         pass_filenames: true
       - id: vale-lint
         name: Run Vale linter
         entry: vale
         language: system
-        types: [markdown]
+        types:
+          - markdown
         files: "^(README.md|CONTRIBUTING.md|CODE_OF_CONDUCT.md|guide/src/.*.md)$"
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.8.3

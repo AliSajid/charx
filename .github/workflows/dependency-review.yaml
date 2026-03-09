@@ -1,3 +1,4 @@
+---
 # Dependency Review Action
 #
 # This Action will scan dependency manifest files that change as part of a Pull Request,
@@ -19,7 +20,7 @@ jobs:
         uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
         with:
           egress-policy: block
-          allowed-endpoints: |
+          allowed-endpoints: >
             api.github.com:443
             api.securityscorecards.dev:443
             github.com:443

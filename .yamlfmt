@@ -1,0 +1,17 @@
+---
+# SPDX-FileCopyrightText: 2025 Ali Sajid Imami
+#
+# SPDX-License-Identifier: CC0-1.0
+line_ending: "lf"
+doublestar: true
+include:
+    - .github/**/*.yaml
+    - .yamlfmt
+formatter:
+    type: basic
+    include_document_start: true
+    line_ending: "lf"
+    max_line_length: 150
+    indent: 2
+    scan_folded_as_literal: true
+    force_array_style: block
