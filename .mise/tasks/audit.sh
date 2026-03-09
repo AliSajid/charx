@@ -13,9 +13,13 @@
 set -euo pipefail
 
 log() { printf '[audit] %s\n' "$*"; }
-die() { printf '[audit] ERROR: %s\n' "$*" >&2; exit 1; }
+die() {
+    printf '[audit] ERROR: %s\n' "$*" >&2
+    exit 1
+}
 require_cmd() { command -v "$1" >/dev/null 2>&1 || die "missing required command: $1"; }
 
+require_cmd cargo
 require_cmd cargo-audit
 [[ -f "Cargo.toml" ]] || die "Cargo.toml not found; run this task from the project root"
 

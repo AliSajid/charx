@@ -15,11 +15,14 @@
 set -euo pipefail
 
 log() { printf '[test] %s\n' "$*"; }
-die() { printf '[test] ERROR: %s\n' "$*" >&2; exit 1; }
+die() {
+    printf '[test] ERROR: %s\n' "$*" >&2
+    exit 1
+}
 require_cmd() { command -v "$1" >/dev/null 2>&1 || die "missing required command: $1"; }
 
-
 require_cmd cargo
+require_cmd cargo-nextest
 [[ -f "Cargo.toml" ]] || die "Cargo.toml not found; run this task from the project root"
 
 log "Running tests via cargo nextest"
