@@ -114,6 +114,10 @@ jobs:
           install: true
           experimental: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          mise_toml: |
+            [tools]
+            rust = {version = ${{matrix.rust}}, profile = "default"}
+            "aqua:nextest-rs/nextest/cargo-nextest" = "0.9.129"
       - name: Cargo Build
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
         run: mise run build
