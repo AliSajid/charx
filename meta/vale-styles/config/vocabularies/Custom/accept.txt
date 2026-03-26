@@ -47,3 +47,8 @@ rotationally
 schneegans
 semrel
 upload_release
+stdlib
+nextest
+ubuntu
+generate_code_coverage
+get_next_version
