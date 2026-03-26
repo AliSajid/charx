@@ -23,3 +23,9 @@ yamllint = "1.38.0"
 "cargo:cargo-edit" = "0.13.8"
 "aqua:nextest-rs/nextest/cargo-nextest" = "0.9.129"
 "aqua:taiki-e/cargo-llvm-cov" = "0.8.4"
+
+[env]
+# Add Anthropic Variables
+ANTHROPIC_AUTH_TOKEN = "ollama"
+ANTHROPIC_API_KEY = ""
+ANTHROPIC_BASE_URL = "http://localhost:11434"
