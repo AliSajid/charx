@@ -35,14 +35,14 @@ jobs:
           egress-policy: audit
           allowed-endpoints: >
             github.com:443
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Dump github.event context
         env:
           DUMPABLE: ${{toJson(github)}}
         run: echo "$DUMPABLE\n"
       - name: Check changed directories
         id: changed_dirs
-        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+        uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         with:
           base: ${{ github.ref }}
           filters: |
@@ -110,10 +110,10 @@ jobs:
             api.github.com:443
             github.com:443
             static.rust-lang.org:443
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup mise-en-place
         if: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
-        uses: jdx/mise-action@e79ddf65a11cec7b0e882bedced08d6e976efb2d # v3.6.2
+        uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
         with:
           install: true
           experimental: true
