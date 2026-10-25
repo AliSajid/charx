@@ -1,17 +1,21 @@
 {
-    "MD001": false,
-    "MD003": {
-        "style": "atx"
-    },
-    "MD007": {
-        "indent": 2
-    },
-    "MD013": false,
-    "MD024": false,
-    "MD033": false,
-    "MD041": false,
-    "default": true,
-    "link-fragments": false,
-    "no-hard-tabs": true,
-    "whitespace": false
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+  "MD001": false,
+  "MD003": {
+    "style": "atx"
+  },
+  "MD007": {
+    "indent": 2
+  },
+  "MD013": false,
+  "MD024": false,
+  "MD033": false,
+  "MD041": false,
+  "MD060": {
+    "style": "any"
+  },
+  "default": true,
+  "link-fragments": false,
+  "no-hard-tabs": true,
+  "whitespace": false
 }
