@@ -16,7 +16,8 @@ on:
 permissions:
   contents: read
 jobs:
-  security_audit:
+  security-audit:
+    name: Security Audit
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     permissions:
