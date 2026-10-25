@@ -63,7 +63,7 @@ jobs:
       (github.event_name == 'push' && inputs.source_changed == true)
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
           allowed-endpoints: >
@@ -71,9 +71,9 @@ jobs:
             github.com:443
             static.rust-lang.org:443
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup mise-en-place
-        uses: jdx/mise-action@e79ddf65a11cec7b0e882bedced08d6e976efb2d # v3.6.2
+        uses: jdx/mise-action@82a612c5ab8bcda7cc5db6b7e81a8e7584c3dc6e # v5.2.3
         with:
           install: true
           experimental: true
@@ -91,13 +91,13 @@ jobs:
       - name: Cargo Lint Check
         run: mise run lint
       - name: Wait before badge creation
-        uses: AliSajid/random-wait-action@cd6450856f807a0b8e50d872f4c80f09249ffe59 # v2.11.0
+        uses: AliSajid/random-wait-action@933d3635c56777d240b67abe794f1a5f7bdfd063 # v2.12.0
         with:
           minimum: ${{env.MINIMUM_WAIT}}
           maximum: ${{env.MAXIMUM_WAIT}}
       - name: Create Badge - Success
         if: success()
-        uses: schneegans/dynamic-badges-action@e9a478b16159b4d31420099ba146cdc50f134483 # v1.7.0
+        uses: schneegans/dynamic-badges-action@28b0fa8bdeb46170ac397105ece0c1fe58f68910 # v1.9.0
         with:
           auth: ${{secrets.GIST_SECRET}}
           gistID: ${{env.GIST_KEY}}
@@ -109,7 +109,7 @@ jobs:
           color: green
       - name: Create Badge - Failure
         if: failure()
-        uses: schneegans/dynamic-badges-action@e9a478b16159b4d31420099ba146cdc50f134483 # v1.7.0
+        uses: schneegans/dynamic-badges-action@28b0fa8bdeb46170ac397105ece0c1fe58f68910 # v1.9.0
         with:
           auth: ${{secrets.GIST_SECRET}}
           gistID: ${{env.GIST_KEY}}
