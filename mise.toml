@@ -21,6 +21,7 @@ hk = { version = "2.8.1", workflow = "release.yml" }
 jq = "1.8"
 mbx = { version = "1.27.0", workflow = "release.yml@refs/heads/main" }
 mdbook = "0.5.4"
+"npm:prettier" = "3.9.10"
 pkl = "0.32.2"
 "pypi:texthooks" = "1.0.0"
 python = "3.13"

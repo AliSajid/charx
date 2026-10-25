@@ -344,6 +344,11 @@ checksum = "sha256:8a6b2421aa522de06d746871d2b8fff9c8d71773467e310a4516d2566e7f2
 url = "https://github.com/rust-lang/mdBook/releases/download/v0.5.4/mdbook-v0.5.4-x86_64-pc-windows-msvc.zip"
 url_api = "https://api.github.com/repos/rust-lang/mdBook/releases/assets/468210971"
 
+[[tools."npm:prettier"]]
+version = "3.9.10"
+backend = "npm:prettier"
+specifiers = ["latest"]
+
 [[tools.pkl]]
 version = "0.32.2"
 backend = "aqua:apple/pkl"
