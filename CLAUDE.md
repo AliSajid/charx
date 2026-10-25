@@ -25,13 +25,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The entire library implementation lives in `src/lib.rs` (104 lines), using a macro `charx_fn!` to:
 
-1. Generate all 12 functions from a single macro invocation
+1. Generate all 11 functions from a single macro invocation
 2. Automatically generate documentation
-3. Embed test code that validates all functions against stdlib
+3. Embed test code that validates all functions against `stdlib`
 
-### The 12 Functions
+### The 11 Functions
 
-All functions wrap `char::$name(&ch)` from stdlib but take `char` instead of `&char`:
+All functions wrap `char::$name(&ch)` from `stdlib` but take `char` instead of `&char`:
 
 - `is_ascii_alphabetic`
 - `is_ascii_alphanumeric`
@@ -63,7 +63,7 @@ The project uses `mise` for tool management. Key tools:
 - `cargo:cargo-about` - project metadata
 - `hk` - pre-commit hooks
 - `cocogitto` - semantic versioning
-- `aqua` - manages nextest and llvm-cov
+- `aqua` - manages `nextest` and `llvm-cov`
 
 ## Common Development Tasks
 
@@ -75,7 +75,7 @@ Run all tests with cargo:
 cargo test
 ```
 
-Run tests with nextest (faster):
+Run tests with `nextest` (faster):
 
 ```bash
 cargo nextest run
@@ -126,7 +126,7 @@ cargo llvm-cov report
 The CI workflow (`.github/workflows/ci.yaml`) orchestrates:
 
 - **ci**: Matrix builds on ubuntu, windows, macos for stable, beta, nightly, and MSRV (1.59.0)
-- **generate_code_coverage**: Code coverage generation using taiki-e/taiki-e
+- **generate_code_coverage**: Code coverage generation using in a tarpaulin container using `cargo llvm-cov` to produce an `lcov` report
 - **get_next_version**: Version bump preparation
 - **semantic-release**: Automated release with changelog generation
 
@@ -180,7 +180,7 @@ When modifying `Cargo.toml`:
 
 1. Consider MSRV compatibility (must remain >= 1.59.0)
 2. The crate is intentionally minimal - no external dependencies
-3. Profile settings in Cargo.toml affect build artifacts
+3. Profile settings in `Cargo.toml` affect build artifacts
 
 When reviewing PRs:
 
