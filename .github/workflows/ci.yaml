@@ -37,6 +37,8 @@ jobs:
           allowed-endpoints: >
             github.com:443
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Dump github.event context
         env:
           DUMPABLE: ${{toJson(github.event)}}
@@ -59,7 +61,7 @@ jobs:
     name: Build Matrix
     needs:
       - check_changed_dirs
-    uses: ./.github/workflows/build-matrix.yaml
+    uses: $/.github/workflows/build-matrix.yaml
     with:
       source_changed: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
   coverage:
@@ -70,7 +72,7 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       needs.check_changed_dirs.outputs.source_changed == 'true' ||
       needs.check_changed_dirs.outputs.tests_changed == 'true'
-    uses: ./.github/workflows/coverage.yaml
+    uses: $/.github/workflows/coverage.yaml
   get_next_version:
     name: Get Next Version
     needs:
@@ -78,6 +80,6 @@ jobs:
     if: |
       github.event_name == 'push' &&
       (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
-    uses: ./.github/workflows/get_next_version.yaml
+    uses: $/.github/workflows/get_next_version.yaml
     with:
       base_ref: ${{github.base_ref}}
