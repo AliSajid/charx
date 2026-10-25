@@ -3,7 +3,7 @@ revision = 5
 requires-python = ">=3.10"
 
 [options]
-exclude-newer = "2026-10-23T12:15:57.723294Z"
+exclude-newer = "2026-10-24T22:14:08.591254406Z"
 
 [[package]]
 name = "identify"
