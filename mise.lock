@@ -346,8 +346,12 @@ url_api = "https://api.github.com/repos/rust-lang/mdBook/releases/assets/4682109
 
 [[tools."npm:prettier"]]
 version = "3.9.10"
+aube = { path = ".mise/locks/npm-prettier/3.9.10", digest = "sha256:0a52cf3e98ebe971f9f0c338c08e668756d290a8d14fe3fd308251084fba1522" }
 backend = "npm:prettier"
-specifiers = ["latest"]
+specifiers = [
+    "3.9.10",
+    "latest",
+]
 
 [[tools.pkl]]
 version = "0.32.2"
