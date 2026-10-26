@@ -25,7 +25,7 @@ mdbook = "0.5.4"
 pkl = "0.32.2"
 "pypi:texthooks" = "1.0.0"
 python = "3.13"
-rust = { version = "1.59.0", profile = "minimal", mr_boxington = true }
+rust = { version = "1.59.0", profile = "minimal", mr_boxington = true, components = "rustfmt" }
 taplo = "0.10.0"
 vale = "3.25.1"
 yamllint = "1.38.0"

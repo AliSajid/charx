@@ -448,6 +448,7 @@ backend = "core:rust"
 specifiers = ["1.59.0"]
 
 [tools.rust.options]
+components = "rustfmt"
 profile = "minimal"
 
 [[tools.taplo]]
