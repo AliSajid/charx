@@ -128,6 +128,12 @@ local dependency_checks = new Mapping<String, Step> {
 // Validates documentation quality and style
 // ============================================================================
 local documentation_checks = new Mapping<String, Step> {
+  // Name: Run Prettier formatter (aligns markdown tables, etc.)
+  ["prettier"] = new Step {
+    types = List("markdown")
+    check = "prettier --check {{files}}"
+    fix = "prettier --write {{files}}"
+  }
   // Name: Run Vale linter
   ["vale-lint"] = new Step {
     types = List("markdown")
