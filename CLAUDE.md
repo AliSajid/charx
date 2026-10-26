@@ -146,6 +146,7 @@ The CI workflow (`.github/workflows/ci.yaml`) orchestrates:
 ### Commit Messages
 
 Use Conventional Commits specification. The commit message should complete:
+
 > If applied, this commit will _Your subject line here_
 
 See `CHANGELOG.md` for examples of recent commits and their categorization.
