@@ -200,7 +200,7 @@
 - (**deps**) update actions/setup-node action to v5 - (fbc8709) - renovate[bot]
 - (**deps**) update repository maintenance - (e291353) - renovate[bot]
 - (**deps**) update cycjimmy/semantic-release-action action to v5 - (e3537c9) - renovate[bot]
-- (**deps**) update repository maintenance (#69) - (cc683f6) - renovate[bot], *renovate[bot]*
+- (**deps**) update repository maintenance (#69) - (cc683f6) - renovate[bot], _renovate[bot]_
 - (**deps**) update repository maintenance - (7d598bc) - renovate[bot]
 - (**deps**) update repository maintenance - (7b2581c) - renovate[bot]
 - (**deps**) update actions/checkout action to v5 - (7a03b91) - renovate[bot]
@@ -222,7 +222,7 @@
 - (**deps**) update repository maintenance - (758d550) - renovate[bot]
 - (**deps**) update repository maintenance - (e4fb3d6) - renovate[bot]
 - (**deps**) update repository maintenance - (1a410c8) - renovate[bot]
-- (**deps**) update repository maintenance (major) (#38) - (ab20c71) - renovate[bot], *renovate[bot]*, *Ali Sajid Imami*
+- (**deps**) update repository maintenance (major) (#38) - (ab20c71) - renovate[bot], _renovate[bot]_, _Ali Sajid Imami_
 - (**deps**) update repository maintenance - (2d98da1) - renovate[bot]
 
 #### Style
@@ -231,7 +231,7 @@
 - fix markdown styling issues (#19) - (2db4c7f) - Ali Sajid Imami
 - fix markdown styling issues - (6cbf881) - Ali Sajid Imami
 
-- - -
+---
 
 ## v1.1.0 - 2024-09-02
 
@@ -290,7 +290,7 @@
 - (**release**) 1.1.0 [skip ci] - (b201057) - imamiland-bot
 - (**release**) 1.1.0-next.1 [skip ci] - (253016e) - imamiland-bot
 
-- - -
+---
 
 ## v1.0.2 - 2022-10-28
 
@@ -302,7 +302,7 @@
 
 - (**release**) 1.0.2 [skip ci] - (67227ce) - semantic-release-bot
 
-- - -
+---
 
 ## v1.0.1 - 2022-10-28
 
@@ -314,7 +314,7 @@
 
 - (**release**) 1.0.1 [skip ci] - (0f9a275) - semantic-release-bot
 
-- - -
+---
 
 ## v1.0.0 - 2022-10-28
 
@@ -361,5 +361,3 @@
 #### Style
 
 - added blank empty line att he end - (f6ed594) - Ali Sajid Imami
-
-
