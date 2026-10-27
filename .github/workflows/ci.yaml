@@ -10,7 +10,9 @@ on:
       - main
       - next
     types:
-      - closed
+      - opened
+      - synchronize
+      - reopened
   workflow_dispatch:
 concurrency:
   group: ${{github.workflow}}-${{github.event_name}}-${{github.ref}}
