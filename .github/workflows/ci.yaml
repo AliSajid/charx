@@ -82,3 +82,11 @@ jobs:
     uses: $/.github/workflows/get_next_version.yaml
     with:
       base_ref: ${{github.ref_name}}
+  release:
+    needs:
+      - get_next_version
+    if: needs.get_next_version.outputs.new_release == 'true'
+    uses: $/.github/workflows/release.yaml
+    with:
+      new_release: true
+      prerelease: ${{ needs.get_next_version.outputs.prerelease == 'true' }}
