@@ -68,8 +68,9 @@ jobs:
       - check_changed_dirs
     if: |
       github.event_name == 'workflow_dispatch' ||
-      needs.check_changed_dirs.outputs.source_changed == 'true' ||
-      needs.check_changed_dirs.outputs.tests_changed == 'true'
+      (github.event_name == 'pull_request') ||
+      (github.event_name == 'push' &&
+        (github.ref == 'refs/heads/next' || github.ref == 'refs/heads/main'))
     uses: $/.github/workflows/coverage.yaml
   get_next_version:
     name: Get Next Version
