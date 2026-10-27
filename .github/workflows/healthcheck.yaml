@@ -19,7 +19,7 @@ jobs:
   security-audit:
     name: Security Audit
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       security-events: write
       id-token: write
@@ -63,7 +63,7 @@ jobs:
           sarif_file: results.sarif
   analysis:
     name: Scorecard Analysis
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       security-events: write
       id-token: write

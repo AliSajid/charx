@@ -27,7 +27,7 @@ env:
 jobs:
   check_changed_dirs:
     name: Check Changed Directories
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       source_changed: ${{steps.changed_dirs.outputs.source}}
       tests_changed: ${{steps.changed_dirs.outputs.tests}}
