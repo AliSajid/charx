@@ -78,7 +78,7 @@ jobs:
       - check_changed_dirs
     if: |
       github.event_name == 'push' &&
-      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+      (github.ref == 'refs/heads/next' || github.ref == 'refs/heads/main')
     uses: $/.github/workflows/get_next_version.yaml
     with:
-      base_ref: ${{github.base_ref}}
+      base_ref: ${{github.ref_name}}
