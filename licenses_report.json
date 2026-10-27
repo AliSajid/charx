@@ -12,7 +12,7 @@
                 "edition": "2021",
                 "features": {},
                 "homepage": null,
-                "id": "path+file:///Users/aimami/experiments/rust-projects/charx#1.1.0",
+                "id": "charx 1.1.0 (path+file:///Users/aimami/experiments/rust-projects/charx)",
                 "keywords": [],
                 "license": "0BSD",
                 "license_file": null,
@@ -40,7 +40,7 @@
                             "lib"
                         ],
                         "name": "charx",
-                        "required-features": [],
+                        "required_features": [],
                         "src_path": "/Users/aimami/experiments/rust-projects/charx/src/lib.rs",
                         "test": true
                     }
@@ -68,7 +68,7 @@
                         "edition": "2021",
                         "features": {},
                         "homepage": null,
-                        "id": "path+file:///Users/aimami/experiments/rust-projects/charx#1.1.0",
+                        "id": "charx 1.1.0 (path+file:///Users/aimami/experiments/rust-projects/charx)",
                         "keywords": [],
                         "license": "0BSD",
                         "license_file": null,
@@ -96,7 +96,7 @@
                                     "lib"
                                 ],
                                 "name": "charx",
-                                "required-features": [],
+                                "required_features": [],
                                 "src_path": "/Users/aimami/experiments/rust-projects/charx/src/lib.rs",
                                 "test": true
                             }
