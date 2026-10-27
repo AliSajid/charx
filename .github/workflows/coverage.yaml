@@ -19,7 +19,7 @@ jobs:
         uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -29,19 +29,19 @@ jobs:
           install: true
           experimental: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Collect coverage data (including doctests)
+      - name: Collect Coverage Data (Including Doctests)
         run: |
           cargo llvm-cov --no-report nextest --config-file nextest.toml
           cargo llvm-cov --no-report --doc
           cargo llvm-cov report --doctests --lcov --output-path lcov.info
-      - name: Upload to codecov.io
+      - name: Upload Code Coverage to `codecov.io`
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         with:
           files: lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
           working-directory: .
-      - name: Upload to Codacy
+      - name: Upload Code Coverage to Codacy
         uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699 # v1.3.0
         with:
           project-token: ${{secrets.CODACY_PROJECT_TOKEN}}

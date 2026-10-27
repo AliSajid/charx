@@ -42,7 +42,7 @@ jobs:
           install: true
           experimental: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Preflight checks for release
+      - name: Preflight Checks for Release
         id: new_release_check
         run: mise run get-next-version ${INPUTS_BASE_REF}
         shell: bash
