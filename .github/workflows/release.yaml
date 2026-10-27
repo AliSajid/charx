@@ -29,7 +29,7 @@ permissions:
 jobs:
   release:
     name: Semantic Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: ${{ inputs.new_release }}
     steps:
       - name: Harden Runner
