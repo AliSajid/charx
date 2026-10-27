@@ -17,7 +17,7 @@ env:
   MAXIMUM_WAIT: 10
 jobs:
   ci:
-    name: ${{matrix.badge_label}} - ${{matrix.rust}} on ${{matrix.os}}
+    name: Build Check - ${{matrix.rust}} on ${{matrix.os}}
     runs-on: ${{matrix.os}}
     strategy:
       fail-fast: false
@@ -51,16 +51,12 @@ jobs:
           # Map each Rust version to its label and badge_label
           - rust: stable
             label: stable
-            badge_label: Build
           - rust: beta
             label: beta
-            badge_label: Build
           - rust: nightly
             label: nightly
-            badge_label: Build
           - rust: 1.59.0
             label: msrv
-            badge_label: MSRV
     if: |
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'push' && inputs.source_changed == true)
