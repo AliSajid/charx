@@ -29,6 +29,9 @@ jobs:
           install: true
           experimental: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          mise_toml: |
+            [tools]
+            rust = {version = "nightly", profile = "minimal", components = "llvm-cov,llvm-tools"}
       - name: Collect Coverage Data (Including Doctests)
         run: |
           cargo llvm-cov --no-report nextest --config-file nextest.toml
