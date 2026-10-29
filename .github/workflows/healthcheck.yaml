@@ -15,11 +15,15 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}"
+  cancel-in-progress: true
 jobs:
   security-audit:
     name: Security Audit
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-26.04
+    timeout-minutes: 600
     permissions:
       security-events: write
       id-token: write
@@ -64,6 +68,7 @@ jobs:
   analysis:
     name: Scorecard Analysis
     runs-on: ubuntu-26.04
+    timeout-minutes: 600
     permissions:
       security-events: write
       id-token: write

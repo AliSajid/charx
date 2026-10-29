@@ -11,6 +11,7 @@ jobs:
   test:
     name: Generate Coverage
     runs-on: ubuntu-26.04
+    timeout-minutes: 600
     container:
       image: xd009642/tarpaulin:develop-nightly@sha256:cbffe9132ffb54c6e4b5c0fcbce0182f59193775c90425ff79920f6e0c44b69d
       options: --security-opt seccomp=unconfined
