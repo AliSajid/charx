@@ -18,13 +18,13 @@ SPDX-License-Identifier = "0BSD"
 
 [[annotations]]
 path = [
-  "licenses_report.md",
-  "licenses_report.json",
-  "renovate.json",
-  ".markdownlint.json",
-  ".vale.ini",
-  ".releaserc.yml",
-  "OSSMETADATA",
+    "licenses_report.md",
+    "licenses_report.json",
+    "renovate.json",
+    ".markdownlint.json",
+    ".vale.ini",
+    ".releaserc.yml",
+    "OSSMETADATA",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "2022 - Ali Sajid Imami"
@@ -46,4 +46,10 @@ SPDX-License-Identifier = "CC0-1.0"
 path = ["meta/vale-styles/config/vocabularies/**/*.txt"]
 precedence = "override"
 SPDX-FileCopyrightText = "2022 - Ali Sajid Imami"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [".github/logos/*.svg"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 - Ali Sajid Imami"
 SPDX-License-Identifier = "CC0-1.0"
