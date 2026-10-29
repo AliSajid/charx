@@ -28,9 +28,9 @@ jobs:
   check_changed_dirs:
     name: Check Changed Directories
     runs-on: ubuntu-26.04
+    timeout-minutes: 600
     outputs:
       source_changed: ${{steps.changed_dirs.outputs.source}}
-      tests_changed: ${{steps.changed_dirs.outputs.tests}}
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
@@ -53,8 +53,6 @@ jobs:
               - "examples/**/*"
               - "Cargo.toml"
               - "Cargo.lock"
-            tests:
-              - "tests/**/*"
   build-matrix:
     name: Build Matrix
     needs:

@@ -14,9 +14,13 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}"
+  cancel-in-progress: true
 jobs:
   dependency-review:
     runs-on: ubuntu-26.04
+    timeout-minutes: 600
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3

@@ -23,6 +23,7 @@ jobs:
   preflight:
     name: Preflight Checks for Release
     runs-on: ubuntu-26.04
+    timeout-minutes: 600
     outputs:
       new_release: ${{steps.new_release_check.outputs.new_release}}
       prerelease: ${{steps.new_release_check.outputs.prerelease}}
@@ -44,7 +45,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Preflight Checks for Release
         id: new_release_check
-        run: mise run get-next-version ${INPUTS_BASE_REF}
+        run: mise run get-next-version "${INPUTS_BASE_REF}"
         shell: bash
         env:
           INPUTS_BASE_REF: ${{inputs.base_ref}}
