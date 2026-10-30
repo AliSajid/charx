@@ -58,10 +58,16 @@ jobs:
     needs:
       - check_changed_dirs
     uses: $/.github/workflows/build-matrix.yaml
+    secrets:
+      GIST_SECRET: ${{ secrets.ACTIONS_PAT_GITHUB }}
+      GIST_KEY: ${{ env.GIST_KEY }}
     with:
       source_changed: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
   coverage:
     name: Code Coverage
+    secrets:
+      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     needs:
       - check_changed_dirs
     if: |
@@ -88,6 +94,11 @@ jobs:
     permissions:
       contents: write
     uses: $/.github/workflows/release.yaml
+    secrets:
+      GPG_KEY_PASSPHRASE: ${{ secrets.GPG_KEY_PASSPHRASE }}
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      GPG_SUBKEY_FINGERPRINT: ${{ secrets.GPG_SUBKEY_FINGERPRINT }}
+      SEMREL_CRATES_IO: ${{ secrets.SEMREL_CRATES_IO }}
     with:
       new_release: true
       prerelease: ${{ needs.get_next_version.outputs.prerelease == 'true' }}
