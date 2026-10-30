@@ -37,13 +37,15 @@ env:
   RUST_BACKTRACE: 1
 concurrency:
   group: ${{ github.workflow }}
+permissions:
+  contents: read
 jobs:
   release:
     name: Semantic Release
     runs-on: ubuntu-26.04
     timeout-minutes: 600
     permissions:
-      contents: write
+      contents: write # Permission needed to publish a release
     if: ${{ inputs.new_release }}
     steps:
       - name: Harden Runner
@@ -77,8 +79,10 @@ jobs:
       - name: Set `prerelease` Flag if necessary
         id: prerelease_flag
         if: ${{inputs.prerelease}}
+        shell: bash
         run: echo "prerelease_flag=--pre" >>"$GITHUB_OUTPUT"
       - name: Get the next version number
+        shell: bash
         run: |
           args=(--dry-run --auto)
           [ -n "$PRERELEASE_FLAG" ] && args+=("$PRERELEASE_FLAG")
@@ -95,6 +99,7 @@ jobs:
           cog bump "${args[@]}"
         shell: bash
       - name: Generate Changelog
+        shell: bash
         run: cog changelog --at "${NEXT_VERSION}" | tee RELEASE_NOTES
       - name: Create a GitHub release
         env:
