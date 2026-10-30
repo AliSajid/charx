@@ -26,6 +26,6 @@ jq = "1.8"
 python = "3.13"
 rust = { version = "stable", profile = "minimal", mr_boxington = false, components = "rustfmt, clippy" }
 taplo = "0.10.0"
-uv = "0.13.5"
+uv = "0.13.6"
 vale = "3.25.1"
 yamllint = "1.38.0"
