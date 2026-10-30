@@ -34,6 +34,7 @@ jobs:
             [tools]
             rust = {version = "nightly", profile = "minimal", components = "llvm-tools"}
             "cargo:cargo-llvm-cov" = "0.9.1"
+            "aqua:nextest-rs/nextest/cargo-nextest" = "0.9.149"
       - name: Collect Coverage Data (Including Doctests)
         run: |
           cargo llvm-cov --no-report nextest --config-file nextest.toml
