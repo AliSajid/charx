@@ -5,6 +5,13 @@
 name: Code Coverage
 on:
   workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        required: true
+        description: "A repository token for codecov.io"
+      CODACY_PROJECT_TOKEN:
+        required: true
+        description: "A project-scoped token for Codacy"
 permissions:
   contents: read
 jobs:
