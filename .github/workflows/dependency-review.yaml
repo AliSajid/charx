@@ -19,6 +19,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   dependency-review:
+    name: Dependency Review
     runs-on: ubuntu-26.04
     timeout-minutes: 600
     steps:

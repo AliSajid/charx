@@ -25,8 +25,9 @@ jobs:
     runs-on: ubuntu-26.04
     timeout-minutes: 600
     permissions:
-      security-events: write
-      id-token: write
+      contents: read
+      security-events: write # Need permission to upload findings to GitHub Security Events
+      id-token: write # Need permission for siging the reports for Github Security Events
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
@@ -55,12 +56,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Security Audit
         run: mise run audit --format sarif > results.sarif
+        shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: SARIF file
           path: results.sarif
           retention-days: 5
+          if-no-files-found: error
       - name: Upload to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:
@@ -70,8 +73,9 @@ jobs:
     runs-on: ubuntu-26.04
     timeout-minutes: 600
     permissions:
-      security-events: write
-      id-token: write
+      contents: read
+      security-events: write # Need permission to upload findings to GitHub Security Events
+      id-token: write # Need permission for siging the reports for Github Security Events
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
@@ -97,6 +101,7 @@ jobs:
           name: SARIF file
           path: results.sarif
           retention-days: 5
+          if-no-files-found: error
       - name: Upload to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:

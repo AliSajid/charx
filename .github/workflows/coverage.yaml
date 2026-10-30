@@ -43,6 +43,7 @@ jobs:
             "cargo:cargo-llvm-cov" = "0.9.1"
             "aqua:nextest-rs/nextest/cargo-nextest" = "0.9.149"
       - name: Collect Coverage Data (Including Doctests)
+        shell: bash
         run: |
           cargo llvm-cov --no-report nextest --config-file nextest.toml
           cargo llvm-cov --no-report --doc

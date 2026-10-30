@@ -5,6 +5,9 @@
 name: Continuous Integration
 on:
   push:
+    branches-ignore:
+      - main
+      - next
   pull_request:
     branches:
       - main
@@ -70,18 +73,18 @@ jobs:
     needs:
       - check_changed_dirs
     if: |
-      github.event_name == 'workflow_dispatch' ||
+      ${{ github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request') ||
       (github.event_name == 'push' &&
-        (github.ref == 'refs/heads/next' || github.ref == 'refs/heads/main'))
+        (github.ref == 'refs/heads/next' || github.ref == 'refs/heads/main')) }}
     uses: $/.github/workflows/coverage.yaml
   get_next_version:
     name: Get Next Version
     needs:
       - check_changed_dirs
     if: |
-      github.event_name == 'push' &&
-      (github.ref == 'refs/heads/next' || github.ref == 'refs/heads/main')
+      ${{ github.event_name == 'push' &&
+      (github.ref == 'refs/heads/next' || github.ref == 'refs/heads/main') }}
     uses: $/.github/workflows/get_next_version.yaml
     with:
       base_ref: ${{github.ref_name}}
@@ -89,9 +92,9 @@ jobs:
     name: Release
     needs:
       - get_next_version
-    if: needs.get_next_version.outputs.new_release == 'true'
+    if: ${{ needs.get_next_version.outputs.new_release == 'true' }}
     permissions:
-      contents: write
+      contents: write # Setting contents: write so it is passed to the release workflow
     uses: $/.github/workflows/release.yaml
     secrets:
       GPG_KEY_PASSPHRASE: ${{ secrets.GPG_KEY_PASSPHRASE }}

@@ -26,6 +26,9 @@ jobs:
   ci:
     name: Build Check - ${{matrix.rust}} on ${{matrix.os}}
     runs-on: ${{matrix.os}}
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 600
     strategy:
       fail-fast: false
@@ -55,8 +58,8 @@ jobs:
           - rust: 1.59.0
             label: msrv
     if: |
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'push' && inputs.source_changed == true)
+      ${{github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && inputs.source_changed == true) }}
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
@@ -95,15 +98,17 @@ jobs:
           maximum: ${{env.MAXIMUM_WAIT}}
       - name: Load OS Logo
         shell: bash
+        env:
+          LOGO: ${{ matrix.logo }}
         run: |
           {
             echo "LOGO_SVG<<EOF"
-            tr -d '\n' < ".github/logos/${{ matrix.logo }}.svg"
+            tr -d '\n' < ".github/logos/${LOGO}.svg"
             echo
             echo "EOF"
           } >> "$GITHUB_ENV"
       - name: Create Badge - Success
-        if: success()
+        if: ${{ success() }}
         uses: schneegans/dynamic-badges-action@28b0fa8bdeb46170ac397105ece0c1fe58f68910 # v1.9.0
         with:
           auth: ${{secrets.GIST_SECRET}}
@@ -115,7 +120,7 @@ jobs:
           message: Succeeded
           color: green
       - name: Create Badge - Failure
-        if: failure()
+        if: ${{ failure() }}
         uses: schneegans/dynamic-badges-action@28b0fa8bdeb46170ac397105ece0c1fe58f68910 # v1.9.0
         with:
           auth: ${{secrets.GIST_SECRET}}
@@ -128,7 +133,7 @@ jobs:
           isError: true
       - name: Set Output
         id: set-output
-        if: always()
+        if: ${{ always() }}
         env:
           JOB_STATUS: ${{ job.status }}
         run: echo "success=${JOB_STATUS}" >> "$GITHUB_OUTPUT"
