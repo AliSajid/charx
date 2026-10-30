@@ -5,6 +5,13 @@
 name: Build Matrix
 on:
   workflow_call:
+    secrets:
+      GIST_SECRET:
+        required: true
+        description: "A GitHub Personal Access Token with Gist editing permissions"
+      GIST_KEY:
+        required: true
+        description: "The key for the Gist holding the badge information"
     inputs:
       source_changed:
         description: "Whether source code has changed"

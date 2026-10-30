@@ -5,6 +5,19 @@
 name: Semantic Release
 on:
   workflow_call:
+    secrets:
+      GPG_PRIVATE_KEY:
+        required: true
+        description: "The GPG Private Key for signing the release"
+      GPG_KEY_PASSPHRASE:
+        required: true
+        description: "The passphrase to unlock the GPG Private Key"
+      GPG_SUBKEY_FINGERPRINT:
+        required: true
+        description: "The fignerprint of the GPG Subkey used to sign the release"
+      SEMREL_CRATES_IO:
+        required: true
+        description: "The crates.io token for semantic release"
     inputs:
       new_release:
         description: "Whether or not a new release needs to be published"
