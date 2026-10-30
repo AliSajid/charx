@@ -20,7 +20,6 @@ concurrency:
 permissions:
   contents: read
 env:
-  GIST_KEY: d52f912107d7609656370db9d741596c # pragma: allowlist secret
   RUST_BACKTRACE: 1
   MINIMUM_WAIT: 3
   MAXIMUM_WAIT: 10
@@ -60,7 +59,7 @@ jobs:
     uses: $/.github/workflows/build-matrix.yaml
     secrets:
       GIST_SECRET: ${{ secrets.ACTIONS_PAT_GITHUB }}
-      GIST_KEY: ${{ env.GIST_KEY }}
+      GIST_KEY: ${{ vars.GIST_KEY }}
     with:
       source_changed: ${{ needs.check_changed_dirs.outputs.source_changed == 'true' }}
   coverage:
