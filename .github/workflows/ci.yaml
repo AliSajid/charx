@@ -5,9 +5,6 @@
 name: Continuous Integration
 on:
   push:
-    branches-ignore:
-      - main
-      - next
   pull_request:
     branches:
       - main
