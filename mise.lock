@@ -330,10 +330,10 @@ url_api = "https://api.github.com/repos/jqlang/jq/releases/assets/453012788"
 provenance = "github-attestations"
 
 [[tools."npm:prettier"]]
-version = "3.9.10"
-aube = { path = ".mise/locks/npm-prettier/3.9.10", digest = "sha256:ac90155575499fe425ff79950a10b0e7828471899142b93d9daf1ef7d1f2fcbb" }
+version = "3.10.1"
+aube = { path = ".mise/locks/npm-prettier/3.10.1", digest = "sha256:2d1e8d35e9c42e9df167e305f2f8d5fc6fa8ab982cf1070a7e5148d73b5c5534" }
 backend = "npm:prettier"
-specifiers = ["3.9.10"]
+specifiers = ["3.10.1"]
 
 [[tools."pypi:texthooks"]]
 version = "1.0.0"
